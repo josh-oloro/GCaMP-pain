@@ -14,7 +14,7 @@ end
 % Read new data
 if lower(TO_READ) == 'y'
 %     DATA_FOLDER = input('What is the folder name? ', 's');
-    DATA_FOLDER = 'H - NEW Pain experiment PBS 1'
+    DATA_FOLDER = 'E - NEW Pain experiment 1'
     data_folder = {DATA_FOLDER}; %% Input for GUI here
     
     [data_raw, all_image, bg_image, ...
@@ -42,11 +42,11 @@ inj_start = 14365; %start of injection period - GUI input here
 inj_end = 15145; %end of injection period - GUI input here
 start_mark = round((inj_start + inj_end)/2); %Assign frame as timepoint 0 - GUI input here
 
-plot_title1 = 'Pain pre-analysis H - CeA';
+plot_title1 = 'Pain pre-analysis E - CeA';
 plot_data1 = mean_raw1;
 plot_sem1 = sem_raw1;
 
-plot_title2 = 'Pain pre-analysis H - DRN';
+plot_title2 = 'Pain pre-analysis E - DRN';
 plot_data2 = mean_raw2;
 plot_sem2 = sem_raw2;
 
