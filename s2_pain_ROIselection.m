@@ -52,7 +52,8 @@ data_adj_bg(34:43,3:12,:) = nan;
 % Get mean and sem of ROIs
 
 mean_adj_ROI1 = squeeze(mean(data_adj_ROI1, [1 2],'omitnan'));
-sem_adj_ROI1 = squeeze(std(data_adj_ROI1, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj_ROI1, 1) * size(data_adj_ROI1,2));
+%sem_adj_ROI1 = squeeze(std(data_adj_ROI1, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj_ROI1, 1) * size(data_adj_ROI1,2));
+sem_adj_ROI1 = squeeze(std(data_adj_ROI1, 0, [1 2],'omitnan')) ./ sqrt( numel(data_adj_ROI1) ); %<- same as above, less cluttered lang / more readable haha
 
 mean_adj_ROI2 = squeeze(mean(data_adj_ROI2, [1 2],'omitnan'));
 sem_adj_ROI2 = squeeze(std(data_adj_ROI2, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj_ROI2, 1) * size(data_adj_ROI2,2));
