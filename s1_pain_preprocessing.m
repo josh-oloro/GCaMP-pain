@@ -1,5 +1,5 @@
 %% compute for relative difference (Reference Frame subtraction)
-ref_frame = 317:1766;
+ref_frame = 3110:6500;
 ref_frame1 = mean(data_raw1(:,:,ref_frame),3);
 ref_frame2 = mean(data_raw2(:,:,ref_frame),3);
 
@@ -90,11 +90,11 @@ sem_adj1 = squeeze(std(data_adj1, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj1, 1
 mean_adj2 = squeeze(mean(data_adj2, [1 2],'omitnan'));
 sem_adj2 = squeeze(std(data_adj2, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj2, 1) * size(data_adj2,2));
 
-plot_title1 = ['H - Pain \Delta F/F - CeA'];
+plot_title1 = ['E - Pain \Delta F/F - CeA'];
 plot_data1 = mean_adj1;
 plot_sem1 = sem_adj1;
 
-plot_title2 = ['H - Pain \Delta F/F - DRN'];
+plot_title2 = ['E - Pain \Delta F/F - DRN'];
 plot_data2 = mean_adj2;
 plot_sem2 = sem_adj2;
 
@@ -105,3 +105,11 @@ min_y2 = minVal2;
 max_y2 = maxVal2;
 
 plot_mean(plot_data1, plot_sem1, plot_title1, min_y1, max_y1, plot_data2, plot_sem2, plot_title2, min_y2, max_y2, inj_start, inj_end, f0_id, start_mark, data_raw, fps)
+
+proj_path = fileparts(mfilename('fullpath'));
+data_path = fullfile(proj_path, 'data');                % set data path relative to location of this code
+mat_path = fullfile(proj_path, 'mat');                  % set .mat files path relative to location of this code
+trial_fldr = data_folder;
+mat_name = 'K_Pain_adj';
+mat_file2 = fullfile(mat_path, [mat_name, '.mat']);
+save(mat_file2, 'mean_raw1', 'sem_raw1', 'mean_raw2', 'sem_raw2','mean_adj1','sem_adj1','mean_adj2','sem_adj2', 'plot_title1', 'plot_title2', 'minVal1', 'maxVal1', 'minVal2', 'maxVal2','inj_start', 'inj_end', 'f0_id', 'start_mark', 'fps' );
