@@ -38,8 +38,8 @@ max_y1 = prctile(data_raw1(:), 97.5);
 min_y2 = prctile(data_raw2(:), 2.5);
 max_y2 = prctile(data_raw2(:), 97.5);
 
-inj_start = 14365; %start of injection period - GUI input here
-inj_end = 15145; %end of injection period - GUI input here
+inj_start = 7744; %start of injection period - GUI input here
+inj_end = 8199; %end of injection period - GUI input here
 start_mark = round((inj_start + inj_end)/2); %Assign frame as timepoint 0 - GUI input here
 
 plot_title1 = 'Pain pre-analysis E - CeA';

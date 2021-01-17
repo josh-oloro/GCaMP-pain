@@ -26,103 +26,163 @@
 % data_det_all = cat(1,data_det1, data_det2, data_det3);
 %%%%%%%%%%%%%%%%%%%%%%
 
+clearvars
+load('E_Pain_adj')
+
 %Assign ROIs manually from data_adj_all (not detrended)
 
-data_adj_ROI1 = data_adj_all(3:10,78:85,:);
-data_adj_ROI2 = data_adj_all(6:9,72:79,:);
+A_ROI1_xs = 10; A_ROI1_xe = 14; A_ROI1_ys = 73; A_ROI1_ye = 80;
+A_ROI2_xs = 19; A_ROI2_xe = 23; A_ROI2_ys = 87; A_ROI2_ye = 92;
+A_ROI3_xs = 33; A_ROI3_xe = 35; A_ROI3_ys = 75; A_ROI3_ye = 81;
 
-data_adj_ROI5 = data_adj_all(9:16,62:69,:);
-data_adj_ROI6 = data_adj_all(33:40,62:69,:);
-data_adj_ROI7 = data_adj_all(19:26,39:46,:);
-data_adj_ROI8 = data_adj_all(35:42,48:55,:);
+data_adj1_ROI1 = data_adj1(A_ROI1_xs:A_ROI1_xe,A_ROI1_ys:A_ROI1_ye,:);
+data_adj1_ROI2 = data_adj1(A_ROI2_xs:A_ROI2_xe,A_ROI2_ys:A_ROI2_ye,:);
+data_adj1_ROI3 = data_adj1(A_ROI3_xs:A_ROI3_xe,A_ROI3_ys:A_ROI3_ye,:);
 
-data_adj_ROI12 = data_adj_all(36:43,4:11,:);
+
+B_ROI1_xs = 10; B_ROI1_xe = 15; B_ROI1_ys = 74; B_ROI1_ye = 80;
+B_ROI2_xs = 19; B_ROI2_xe = 23; B_ROI2_ys = 87; B_ROI2_ye = 92;
+B_ROI3_xs = 33; B_ROI3_xe = 35; B_ROI3_ys = 75; B_ROI3_ye = 81;
+
+data_adj2_ROI1 = data_adj2(B_ROI1_xs:B_ROI1_xe,B_ROI1_ys:B_ROI1_ye,:);
+data_adj2_ROI2 = data_adj2(B_ROI2_xs:B_ROI2_xe,B_ROI2_ys:B_ROI2_ye,:);
+data_adj2_ROI3 = data_adj2(B_ROI3_xs:B_ROI3_xe,B_ROI3_ys:B_ROI3_ye,:);
+%Note: x and y of matrix is y and x in imagesc
 
 % Assign background manually by setting ROIs as nan
 
-data_adj_bg = data_adj_all(:,:,:);
-data_adj_bg(2:11,77:86,:) = nan;
-data_adj_bg(5:10,71:80,:)= nan;
-data_adj_bg(8:17,61:70,:) = nan;
-data_adj_bg(32:41,61:70,:) = nan;
-data_adj_bg(18:27,38:47,:) = nan;
-data_adj_bg(34:43,47:56,:) = nan;
-data_adj_bg(34:43,3:12,:) = nan;
+data_adj1_bg = data_adj1(:,:,:);
+data_adj1_bg([A_ROI1_xs-2]:[A_ROI1_xe+2],[A_ROI1_ys-2]:[A_ROI1_ye+2],:) = nan;
+data_adj1_bg([A_ROI2_xs-2]:[A_ROI2_xe+2],[A_ROI2_ys-2]:[A_ROI2_ye+2],:)= nan;
+data_adj1_bg([A_ROI3_xs-2]:[A_ROI3_xe+2],[A_ROI3_ys-2]:[A_ROI3_ye+2],:) = nan;
+
+data_adj2_bg = data_adj2(:,:,:);
+data_adj2_bg([B_ROI1_xs-2]:[B_ROI1_xe+2],[B_ROI1_ys-2]:[B_ROI1_ye+2],:) = nan;
+data_adj2_bg([B_ROI2_xs-2]:[B_ROI2_xe+2],[B_ROI2_ys-2]:[B_ROI2_ye+2],:)= nan;
+data_adj2_bg([B_ROI3_xs-2]:[B_ROI3_xe+2],[B_ROI3_ys-2]:[B_ROI3_ye+2],:) = nan;
 
 % Get mean and sem of ROIs
 
-mean_adj_ROI1 = squeeze(mean(data_adj_ROI1, [1 2],'omitnan'));
-%sem_adj_ROI1 = squeeze(std(data_adj_ROI1, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj_ROI1, 1) * size(data_adj_ROI1,2));
-sem_adj_ROI1 = squeeze(std(data_adj_ROI1, 0, [1 2],'omitnan')) ./ sqrt( numel(data_adj_ROI1) ); %<- same as above, less cluttered lang / more readable haha
+mean_adj1_ROI1 = squeeze(mean(data_adj1_ROI1, [1 2],'omitnan'));
+sem_adj1_ROI1 = squeeze(std(data_adj1_ROI1, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj1_ROI1, 1) * size(data_adj1_ROI1,2));
 
-mean_adj_ROI2 = squeeze(mean(data_adj_ROI2, [1 2],'omitnan'));
-sem_adj_ROI2 = squeeze(std(data_adj_ROI2, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj_ROI2, 1) * size(data_adj_ROI2,2));
+mean_adj1_ROI2 = squeeze(mean(data_adj1_ROI2, [1 2],'omitnan'));
+sem_adj1_ROI2 = squeeze(std(data_adj1_ROI2, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj1_ROI2, 1) * size(data_adj1_ROI2,2));
 
-mean_adj_ROI5 = squeeze(mean(data_adj_ROI5, [1 2],'omitnan'));
-sem_adj_ROI5 = squeeze(std(data_adj_ROI5, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj_ROI5, 1) * size(data_adj_ROI5,2));
+mean_adj1_ROI3 = squeeze(mean(data_adj1_ROI3, [1 2],'omitnan'));
+sem_adj1_ROI3 = squeeze(std(data_adj1_ROI3, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj1_ROI3, 1) * size(data_adj1_ROI3,2));
 
-mean_adj_ROI6 = squeeze(mean(data_adj_ROI6, [1 2],'omitnan'));
-sem_adj_ROI6 = squeeze(std(data_adj_ROI6, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj_ROI6, 1) * size(data_adj_ROI6,2));
 
-mean_adj_ROI7 = squeeze(mean(data_adj_ROI7, [1 2],'omitnan'));
-sem_adj_ROI7 = squeeze(std(data_adj_ROI7, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj_ROI7, 1) * size(data_adj_ROI7,2));
+mean_adj2_ROI1 = squeeze(mean(data_adj2_ROI1, [1 2],'omitnan'));
+sem_adj2_ROI1 = squeeze(std(data_adj2_ROI1, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj2_ROI1, 1) * size(data_adj2_ROI1,2));
 
-mean_adj_ROI8 = squeeze(mean(data_adj_ROI8, [1 2],'omitnan'));
-sem_adj_ROI8 = squeeze(std(data_adj_ROI8, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj_ROI8, 1) * size(data_adj_ROI8,2));
+mean_adj2_ROI2 = squeeze(mean(data_adj2_ROI2, [1 2],'omitnan'));
+sem_adj2_ROI2 = squeeze(std(data_adj2_ROI2, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj2_ROI2, 1) * size(data_adj2_ROI2,2));
 
-mean_adj_ROI12 = squeeze(mean(data_adj_ROI12, [1 2],'omitnan'));
-sem_adj_ROI12 = squeeze(std(data_adj_ROI12, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj_ROI12, 1) * size(data_adj_ROI12,2));
+mean_adj2_ROI3 = squeeze(mean(data_adj2_ROI3, [1 2],'omitnan'));
+sem_adj2_ROI3 = squeeze(std(data_adj2_ROI3, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj2_ROI3, 1) * size(data_adj2_ROI3,2));
 
-mean_adj_bg = squeeze(mean(data_adj_bg, [1 2],'omitnan'));
-sem_adj_bg = squeeze(std(data_adj_bg, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj_bg, 1) * size(data_adj_bg,2));
+
+mean_adj1_bg = squeeze(mean(data_adj1_bg, [1 2],'omitnan'));
+sem_adj1_bg = squeeze(std(data_adj1_bg, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj1_bg, 1) * size(data_adj1_bg,2));
+
+mean_adj2_bg = squeeze(mean(data_adj2_bg, [1 2],'omitnan'));
+sem_adj2_bg = squeeze(std(data_adj2_bg, 0, [1 2],'omitnan')) ./ sqrt(size(data_adj2_bg, 1) * size(data_adj2_bg,2));
 
 % return
 
-%% Plot whole frame offset adjusted
-
-plot_title = 'Offset adjusted';
-
-min_y = -300;
-max_y = 400;
-
-inj_start = 18380; %start of injection period
-inj_end = 18930; %end of injection period
-start_mark = 18712; %Assign frame as timepoint 0
-
-plot_data = mean_of_adj;
-plot_sem = sem_of_adj;
-
-plot_mean(plot_data, plot_sem, min_y, max_y, inj_start, inj_end, plot_title, f0_id, start_mark, data_raw, fps);
+% %% Plot whole frame offset adjusted
+% 
+% plot_title = 'Offset adjusted';
+% 
+% min_y = -300;
+% max_y = 400;
+% 
+% % inj_start = 7744; %start of injection period - GUI input here
+% % inj_end = 8199; %end of injection period - GUI input here
+% % start_mark = round((inj_start + inj_end)/2); %Assign frame as timepoint 0 - GUI input here
+% 
+% plot_data = mean_of_adj;
+% plot_sem = sem_of_adj;
+% 
+% plot_mean(plot_data, plot_sem, min_y, max_y, inj_start, inj_end, plot_title, f0_id, start_mark, data_raw, fps);
 
 %% Plot ROI1 offset adjusted
 
-plot_title = 'Offset adjusted (ROI1)';
+% plot_title = 'Offset adjusted (ROI1)';
+% 
+% min_y = -300;
+% max_y = 400;
+% 
+% % inj_start = 7744; %start of injection period - GUI input here
+% % inj_end = 8199; %end of injection period - GUI input here
+% % start_mark = round((inj_start + inj_end)/2); %Assign frame as timepoint 0 - GUI input here
+% 
+% plot_data = mean_adj_ROI1;
+% plot_sem = sem_adj_ROI1;
+% 
+% plot_mean(plot_data, plot_sem, min_y, max_y, inj_start, inj_end, plot_title, f0_id, start_mark, data_raw, fps);
+% 
 
-min_y = -300;
-max_y = 400;
+%% Plot detrended
 
-inj_start = 18380; %start of injection period
-inj_end = 18930; %end of injection period
-start_mark = 18712; %Assign frame as timepoint 0
+% plot_title = 'Detrended';
+% 
+% min_y = -100;
+% max_y = 250;
+% 
+% % inj_start = 7744; %start of injection period - GUI input here
+% % inj_end = 8199; %end of injection period - GUI input here
+% % start_mark = round((inj_start + inj_end)/2); %Assign frame as timepoint 0 - GUI input here
+% 
+% plot_data = data_det_all;
+% plot_sem = [];
+% 
+% plot_mean(plot_data, plot_sem, min_y, max_y, inj_start, inj_end, plot_title, f0_id, start_mark, data_raw, fps);
 
-plot_data = mean_adj_ROI1;
-plot_sem = sem_adj_ROI1;
+%% Image code with ROI
+sample_frame1 = 6942;
+sample_frame2 = 6942;
 
-plot_mean(plot_data, plot_sem, min_y, max_y, inj_start, inj_end, plot_title, f0_id, start_mark, data_raw, fps);
+figure
+subplot(1,2,1)
+image1 = data_adj1(:,:,sample_frame1);
+imagesc(flipud(rot90(image1)), [minVal1,maxVal1]);
+set(gca,'XDir','reverse','YDir','normal')
+hold on
+plot([A_ROI1_xe A_ROI1_xs A_ROI1_xs A_ROI1_xe A_ROI1_xe],[A_ROI1_ye A_ROI1_ye A_ROI1_ys A_ROI1_ys A_ROI1_ye],'r')
+text((A_ROI1_xe+A_ROI1_xs)/2, A_ROI1_ye+1, '1','FontSize',8, 'Color', 'r');
+plot([A_ROI2_xe A_ROI2_xs A_ROI2_xs A_ROI2_xe A_ROI2_xe],[A_ROI2_ye A_ROI2_ye A_ROI2_ys A_ROI2_ys A_ROI2_ye],'r')
+text((A_ROI2_xe+A_ROI2_xs)/2, A_ROI2_ye+1, '2','FontSize',8, 'Color', 'r');
+plot([A_ROI3_xe A_ROI3_xs A_ROI3_xs A_ROI3_xe A_ROI3_xe],[A_ROI3_ye A_ROI3_ye A_ROI3_ys A_ROI3_ys A_ROI3_ye],'r')
+text((A_ROI3_xe+A_ROI3_xs)/2, A_ROI3_ye+1, '3','FontSize',8, 'Color', 'r');
+title(plot_title1, ['Frame ',num2str(sample_frame1)])
+colormap (jet);
+colorbar
 
+subplot(1,2,2)
+image2 = data_adj2(:,:,sample_frame2);
+imagesc(flipud(rot90(image2)), [minVal2,maxVal2]);
+set(gca,'XDir','reverse','YDir','normal')
+hold on
+plot([B_ROI1_xe B_ROI1_xs B_ROI1_xs B_ROI1_xe B_ROI1_xe],[B_ROI1_ye B_ROI1_ye B_ROI1_ys B_ROI1_ys B_ROI1_ye],'r')
+text((B_ROI1_xe+B_ROI1_xs)/2, B_ROI1_ye+1, '1','FontSize',8, 'Color', 'r');
+plot([B_ROI2_xe B_ROI2_xs B_ROI2_xs B_ROI2_xe B_ROI2_xe],[B_ROI2_ye B_ROI2_ye B_ROI2_ys B_ROI2_ys B_ROI2_ye],'r')
+text((B_ROI2_xe+B_ROI2_xs)/2, B_ROI2_ye+1, '2','FontSize',8, 'Color', 'r');
+plot([B_ROI3_xe B_ROI3_xs B_ROI3_xs B_ROI3_xe B_ROI3_xe],[B_ROI3_ye B_ROI3_ye B_ROI3_ys B_ROI3_ys B_ROI3_ye],'r')
+text((B_ROI3_xe+B_ROI3_xs)/2, B_ROI3_ye+1, '3','FontSize',8, 'Color', 'r');
+title(plot_title2, ['Frame ',num2str(sample_frame2)])
+colormap (jet);
+colorbar
 
-%%
-plot_title = 'Detrended';
+%% Save variables
 
-min_y = -100;
-max_y = 250;
-
-inj_start = 18380; %start of injection period
-inj_end = 18930; %end of injection period
-start_mark = 18712; %Assign frame as timepoint 0
-
-plot_data = data_det_all;
-plot_sem = [];
-
-plot_mean(plot_data, plot_sem, min_y, max_y, inj_start, inj_end, plot_title, f0_id, start_mark, data_raw, fps);
-
+proj_path = fileparts(mfilename('fullpath'));
+data_path = fullfile(proj_path, 'data');                % set data path relative to location of this code
+mat_path = fullfile(proj_path, 'mat');                  % set .mat files path relative to location of this code
+trial_fldr = data_folder;
+mat_name = 'E_Pain_adj_ROI';
+mat_file2 = fullfile(mat_path, [mat_name, '.mat']);
+save(mat_file2, 'plot_title1', 'plot_title2', 'minVal1', 'maxVal1', 'minVal2', 'maxVal2','inj_start', 'inj_end', 'f0_id', 'start_mark', 'fps', 'sample_frame1', 'sample_frame2', 'image1', 'image2',...
+    'mean_adj1_ROI1', 'sem_adj1_ROI1', 'mean_adj1_ROI2', 'sem_adj1_ROI2', 'mean_adj1_ROI3', 'sem_adj1_ROI3', 'mean_adj2_ROI1', 'sem_adj2_ROI1', 'mean_adj2_ROI2', 'sem_adj2_ROI2', 'mean_adj2_ROI3', 'sem_adj2_ROI3', 'mean_adj1_bg', 'sem_adj1_bg', 'mean_adj2_bg', 'sem_adj2_bg', ...
+    'A_ROI1_xe', 'A_ROI1_xs', 'A_ROI1_ye', 'A_ROI1_ys','A_ROI2_xe','A_ROI2_xs','A_ROI2_ye', 'A_ROI2_ys', 'A_ROI3_xe', 'A_ROI3_xs', 'A_ROI3_ye', 'A_ROI3_ys', 'B_ROI1_xe', 'B_ROI1_xs', 'B_ROI1_ye', 'B_ROI1_ys', 'B_ROI2_xe', 'B_ROI2_xs', 'B_ROI2_ye', 'B_ROI2_ys', 'B_ROI3_xe', 'B_ROI3_xs', 'B_ROI3_ye', 'B_ROI3_ys');
