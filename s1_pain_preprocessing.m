@@ -1,13 +1,13 @@
 %% compute for relative difference (Reference Frame subtraction)
 ref_frame = 3110:6500;
-ref_frame1 = mean(data_raw1(:,:,ref_frame),3);
-ref_frame2 = mean(data_raw2(:,:,ref_frame),3);
+ref_frame1 = mean(data_denoise1(:,:,ref_frame),3);
+ref_frame2 = mean(data_denoise2(:,:,ref_frame),3);
 
-data_adj1 = ((data_raw1 - ref_frame1)./ref_frame1);
+data_adj1 = ((data_denoise1 - ref_frame1)./ref_frame1);
 minVal1 = prctile(data_adj1(:), 2.5);
 maxVal1 = prctile(data_adj1(:), 97.5);
 
-data_adj2 = ((data_raw2 - ref_frame2)./ref_frame2);
+data_adj2 = ((data_denoise2 - ref_frame2)./ref_frame2);
 minVal2 = prctile(data_adj2(:), 2.5);
 maxVal2 = prctile(data_adj2(:), 97.5);
 
