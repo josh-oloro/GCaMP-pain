@@ -70,20 +70,23 @@ for i = 1:3
     newPost = yl.Position;
     alpha(0.3);
     
-if i == 3
-ax = gca;
-ax.Box = 'off';
-ax.YTick = [];
-ax.YColor = [1 1 1];
-ax.Color = 'none';
-ax.YLabel.String = [{'ROI'; num2str(i)}];
-ax.YLabel.Color = [0 0 0];
-ax.XLabel.String = ['Minutes'];
-ax.YLabel.Position = newPost + [1 0 0];
-else
-    axis off
-end
-
+    if i == 3
+        ax = gca;
+        ax.Box = 'off';
+        ax.YTick = [];
+        ax.YColor = [1 1 1];
+        ax.Color = 'none';
+        ax.YLabel.String = [{'ROI'; num2str(i)}];
+        ax.YLabel.Color = [0 0 0];
+        ax.XLabel.String = ['Minutes'];
+        ax.YLabel.Position = newPost + [1 0 0];
+        
+        plot([75 75], [-0.1+0.01 -0.05+0.01], 'Color', 'k','LineWidth',3)
+        text(77, -0.075+0.01, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
+    else
+        axis off
+    end
+    
 end
 
 subplot(prow,pcol, FM1_img1)
@@ -120,20 +123,23 @@ for i = 1:3
     newPost = yl.Position;
     alpha(0.3);
     
-if i == 3
-ax = gca;
-ax.Box = 'off';
-ax.YTick = [];
-ax.YColor = [1 1 1];
-ax.Color = 'none';
-ax.YLabel.String = [{'ROI'; num2str(i)}];
-ax.YLabel.Color = [0 0 0];
-ax.XLabel.String = ['Minutes'];
-ax.YLabel.Position = newPost + [1 0 0];
-else
-    axis off
-end
-
+    if i == 3
+        ax = gca;
+        ax.Box = 'off';
+        ax.YTick = [];
+        ax.YColor = [1 1 1];
+        ax.Color = 'none';
+        ax.YLabel.String = [{'ROI'; num2str(i)}];
+        ax.YLabel.Color = [0 0 0];
+        ax.XLabel.String = ['Minutes'];
+        ax.YLabel.Position = newPost + [1 0 0];
+        
+        plot([75 75], [-0.1+0.01 -0.05+0.01], 'Color', 'k','LineWidth',3)
+        text(77, -0.075+0.01, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
+    else
+        axis off
+    end
+    
 end
 
 subplot(prow,pcol, FM1_img2)
@@ -201,20 +207,23 @@ for i = 1:3
     newPost = yl.Position;
     alpha(0.3);
     
-if i == 3
-ax = gca;
-ax.Box = 'off';
-ax.YTick = [];
-ax.YColor = [1 1 1];
-ax.Color = 'none';
-ax.YLabel.String = [{'ROI'; num2str(i)}];
-ax.YLabel.Color = [0 0 0];
-ax.XLabel.String = ['Minutes'];
-ax.YLabel.Position = newPost + [1 0 0];
-else
-    axis off
-end
-
+    if i == 3
+        ax = gca;
+        ax.Box = 'off';
+        ax.YTick = [];
+        ax.YColor = [1 1 1];
+        ax.Color = 'none';
+        ax.YLabel.String = [{'ROI'; num2str(i)}];
+        ax.YLabel.Color = [0 0 0];
+        ax.XLabel.String = ['Minutes'];
+        ax.YLabel.Position = newPost + [1 0 0];
+        
+        plot([75 75], [-0.1+0.01 -0.05+0.01], 'Color', 'k','LineWidth',3)
+        text(77, -0.075+0.01, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
+    else
+        axis off
+    end
+    
 end
 
 subplot(prow,pcol, PBSM1_img1)
@@ -251,21 +260,24 @@ for i = 1:3
     newPost = yl.Position;
     alpha(0.3);
     
-if i == 3
-ax = gca;
-ax.Box = 'off';
-ax.YTick = [];
-ax.YColor = [1 1 1];
-ax.Color = 'none';
-ax.YLabel.String = [{'ROI'; num2str(i)}];
-ax.YLabel.Color = [0 0 0];
-ax.XLabel.String = ['Minutes'];
-ax.YLabel.Position = newPost + [1 0 0];
-else
-    axis off
+    if i == 3
+        ax = gca;
+        ax.Box = 'off';
+        ax.YTick = [];
+        ax.YColor = [1 1 1];
+        ax.Color = 'none';
+        ax.YLabel.String = [{'ROI'; num2str(i)}];
+        ax.YLabel.Color = [0 0 0];
+        ax.XLabel.String = ['Minutes'];
+        ax.YLabel.Position = newPost + [1 0 0];
+        
+        plot([75 75], [-0.1+0.01 -0.05+0.01], 'Color', 'k','LineWidth',3)
+        text(77, -0.075+0.01, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
+    else
+        axis off
+        
+    end
     
-end
-
 end
 
 subplot(prow,pcol, PBSM1_img2)
