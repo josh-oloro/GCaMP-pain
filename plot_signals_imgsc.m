@@ -67,22 +67,23 @@ for i = 1:3
     yl.Visible = 'on';
     yl.Rotation = 0;
     yl.FontSize = 14;
+    newPost = yl.Position;
     alpha(0.3);
     
-if i == 3
-ax = gca;
-ax.Box = 'off';
-ax.YTick = [];
-ax.YColor = [1 1 1];
-ax.Color = 'none';
-ax.YLabel.String = [{'ROI'; num2str(i)}];
-ax.YLabel.Color = [0 0 0];
-ax.XLabel.String = ['Minutes'];
-ax.YLabel.Position = yl.Position;
-else
-    axis off
-end
-
+    if i == 3
+        ax = gca;
+        ax.Box = 'off';
+        ax.YTick = [];
+        ax.YColor = [1 1 1];
+        ax.Color = 'none';
+        ax.YLabel.String = {'ROI'; num2str(i)};
+        ax.YLabel.Color = [0 0 0];
+        ax.XLabel.String = 'Minutes';
+        ax.YLabel.Position = newPost;
+    else
+        axis off
+    end
+    
 end
 
 subplot(prow,pcol, FM1_img1)
@@ -116,22 +117,23 @@ for i = 1:3
     yl.Visible = 'on';
     yl.Rotation = 0;
     yl.FontSize = 14;
+    newPost = yl.Position;
     alpha(0.3);
     
-if i == 3
-ax = gca;
-ax.Box = 'off';
-ax.YTick = [];
-ax.YColor = [1 1 1];
-ax.Color = 'none';
-ax.YLabel.String = [{'ROI'; num2str(i)}];
-ax.YLabel.Color = [0 0 0];
-ax.XLabel.String = ['Minutes'];
-ax.YLabel.Position = yl.Position;
-else
-    axis off
-end
-
+    if i == 3
+        ax = gca;
+        ax.Box = 'off';
+        ax.YTick = [];
+        ax.YColor = [1 1 1];
+        ax.Color = 'none';
+        ax.YLabel.String = {'ROI'; num2str(i)};
+        ax.YLabel.Color = [0 0 0];
+        ax.XLabel.String = 'Minutes';
+        ax.YLabel.Position = newPost;
+    else
+        axis off
+    end
+    
 end
 
 subplot(prow,pcol, FM1_img2)
@@ -196,22 +198,23 @@ for i = 1:3
     yl.Visible = 'on';
     yl.Rotation = 0;
     yl.FontSize = 14;
+    newPost = yl.Position;
     alpha(0.3);
     
-if i == 3
-ax = gca;
-ax.Box = 'off';
-ax.YTick = [];
-ax.YColor = [1 1 1];
-ax.Color = 'none';
-ax.YLabel.String = [{'ROI'; num2str(i)}];
-ax.YLabel.Color = [0 0 0];
-ax.XLabel.String = ['Minutes'];
-ax.YLabel.Position = yl.Position;
-else
-    axis off
-end
-
+    if i == 3
+        ax = gca;
+        ax.Box = 'off';
+        ax.YTick = [];
+        ax.YColor = [1 1 1];
+        ax.Color = 'none';
+        ax.YLabel.String = {'ROI'; num2str(i)};
+        ax.YLabel.Color = [0 0 0];
+        ax.XLabel.String = 'Minutes';
+        ax.YLabel.Position = newPost;
+    else
+        axis off
+    end
+    
 end
 
 subplot(prow,pcol, PBSM1_img1)
@@ -245,23 +248,23 @@ for i = 1:3
     yl.Visible = 'on';
     yl.Rotation = 0;
     yl.FontSize = 14;
+    newPost = yl.Position;
     alpha(0.3);
     
-if i == 3
-ax = gca;
-ax.Box = 'off';
-ax.YTick = [];
-ax.YColor = [1 1 1];
-ax.Color = 'none';
-ax.YLabel.String = [{'ROI'; num2str(i)}];
-ax.YLabel.Color = [0 0 0];
-ax.XLabel.String = ['Minutes'];
-ax.YLabel.Position = yl.Position;
-else
-    axis off
+    if i == 3
+        ax = gca;
+        ax.Box = 'off';
+        ax.YTick = [];
+        ax.YColor = [1 1 1];
+        ax.Color = 'none';
+        ax.YLabel.String = {'ROI'; num2str(i)};
+        ax.YLabel.Color = [0 0 0];
+        ax.XLabel.String = 'Minutes';
+        ax.YLabel.Position = newPost;
+    else
+        axis off 
+    end
     
-end
-
 end
 
 subplot(prow,pcol, PBSM1_img2)
