@@ -313,9 +313,9 @@ axis off
 %%%%%%%%%%%%%%%%%%%%%%%%
 load('BehaviorTally')
 subplot(prow,pcol, FM1_lick)
-plot(BehTime, Formalin(:,1), 'o-', 'LineWidth', 3, 'Color', 'k')
+stem(BehTime, Formalin(:,1), 'LineWidth', 3, 'Color', 'k')
 xlim([min_plot_x max_plot_x])
-ylim([0 Inf])
+ylim([0 max(Beh(:))])
 ax = gca;
 ax.Box = 'off';
 ax.Color = 'none';
@@ -325,9 +325,9 @@ yl.FontSize = 14;
 %yl.Rotation = 0;
 
 subplot(prow,pcol, PBSM1_lick)
-plot(BehTime, PBS(:,1), 'o-', 'LineWidth', 3, 'Color', 'k')
+stem(BehTime, PBS(:,1), 'LineWidth', 3, 'Color', 'k')
 xlim([min_plot_x max_plot_x])
-ylim([0 Inf])
+ylim([0 max(Beh(:))])
 ax = gca;
 ax.Box = 'off';
 ax.Color = 'none';
