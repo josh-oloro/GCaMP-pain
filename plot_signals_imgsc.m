@@ -312,8 +312,12 @@ axis off
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 load('BehaviorTally')
+
+FM1_bStart = (14897- start_mark)./fps/conv_x;
+PBS1_bStart = (14897- start_mark)./fps/conv_x;
+
 subplot(prow,pcol, FM1_lick)
-stem(BehTime, Formalin(:,1), 'LineWidth', 3, 'Color', 'k')
+stem(BehTime+FM1_bStart, Formalin(:,1), 'LineWidth', 3, 'Color', 'k')
 xlim([min_plot_x max_plot_x])
 ylim([0 max(Beh(:))])
 ax = gca;
@@ -325,7 +329,7 @@ yl.FontSize = 14;
 %yl.Rotation = 0;
 
 subplot(prow,pcol, PBSM1_lick)
-stem(BehTime, PBS(:,1), 'LineWidth', 3, 'Color', 'k')
+stem(BehTime+PBS1_bStart, PBS(:,1), 'LineWidth', 3, 'Color', 'k')
 xlim([min_plot_x max_plot_x])
 ylim([0 max(Beh(:))])
 ax = gca;
