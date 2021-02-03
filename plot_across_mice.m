@@ -6,7 +6,7 @@ nFilesB = numel (PBS_mat);
 
 f1 = figure( 'Units', 'normalized', 'Position', [0.1 0.25 1 1] );
 min_plot_x = -15;
-max_plot_x = 95;
+max_plot_x = 65;
 min_plot_y = -0.1;
 max_plot_y = 0.1;
 
@@ -81,7 +81,7 @@ inj_end_min = (inj_end-start_mark)./fps/conv_x;
 
 
     subplot(prow,pcol,FM1(j,:))
-    pl_mean1 = plot(tkmarker_mins, CA, 'LineWidth', 3);
+    pl_mean1 = plot(tkmarker_mins, CA, 'LineWidth', 1.5);
     hold on
     ylim([min_plot_y max_plot_y])
     xlim([min_plot_x max_plot_x])
@@ -103,10 +103,12 @@ inj_end_min = (inj_end-start_mark)./fps/conv_x;
         ax.YLabel.String = [{'Mouse'; num2str(j)}];
         ax.YLabel.Color = [0 0 0];
         ax.XLabel.String = ['Minutes'];
+        ax.XLabel.FontSize = 14;
+        ax.XAxis.FontSize = 12;
         ax.YLabel.Position = newPost + [1 0 0];
         
-        plot([75 75], [-0.1+0.1 -0.05+0.1], 'Color', 'k','LineWidth',3)
-        text(77, -0.075+0.1, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
+        plot([max_plot_x-10 max_plot_x-10], [-0.1+0.1 -0.05+0.1], 'Color', 'k','LineWidth',3)
+        text(max_plot_x-8, -0.075+0.1, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
     else
         axis off
     end
@@ -131,7 +133,7 @@ inj_end_min = (inj_end-start_mark)./fps/conv_x;
 
 
     subplot(prow,pcol,FM1(j+nFilesA,:))
-    pl_mean1 = plot(tkmarker_mins, DRN, 'LineWidth', 3, 'Color', 'r');
+    pl_mean1 = plot(tkmarker_mins, DRN, 'LineWidth', 1.5, 'Color', 'r');
     hold on
     ylim([min_plot_y max_plot_y])
     xlim([min_plot_x max_plot_x])
@@ -153,10 +155,12 @@ inj_end_min = (inj_end-start_mark)./fps/conv_x;
         ax.YLabel.String = [{'Mouse'; num2str(j)}];
         ax.YLabel.Color = [0 0 0];
         ax.XLabel.String = ['Minutes'];
+        ax.XLabel.FontSize = 14;
+        ax.XAxis.FontSize = 12;
         ax.YLabel.Position = newPost + [1 0 0];
         
-        plot([75 75], [-0.1+0.1 -0.05+0.1], 'Color', 'k','LineWidth',3)
-        text(77, -0.075+0.1, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
+        plot([max_plot_x-10 max_plot_x-10], [-0.1+0.1 -0.05+0.1], 'Color', 'k','LineWidth',3)
+        text(max_plot_x-8, -0.075+0.1, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
     else
         axis off
     end
@@ -197,7 +201,7 @@ inj_start_min = (inj_start-start_mark)./fps/conv_x;
 inj_end_min = (inj_end-start_mark)./fps/conv_x;
 
     subplot(prow,pcol,PBSM1(k,:))
-    pl_mean1 = plot(tkmarker_mins, CA, 'LineWidth', 3);
+    pl_mean1 = plot(tkmarker_mins, CA, 'LineWidth', 1.5);
     hold on
     ylim([min_plot_y max_plot_y])
     xlim([min_plot_x max_plot_x])
@@ -219,10 +223,12 @@ inj_end_min = (inj_end-start_mark)./fps/conv_x;
         ax.YLabel.String = [{'Mouse'; num2str(k)}];
         ax.YLabel.Color = [0 0 0];
         ax.XLabel.String = ['Minutes'];
+        ax.XLabel.FontSize = 14;
+        ax.XAxis.FontSize = 12;
         ax.YLabel.Position = newPost + [1 0 0];
         
-        plot([75 75], [-0.1+0.1 -0.05+0.1], 'Color', 'k','LineWidth',3)
-        text(77, -0.075+0.1, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
+        plot([max_plot_x-10 max_plot_x-10], [-0.1+0.1 -0.05+0.1], 'Color', 'k','LineWidth',3)
+        text(max_plot_x-8, -0.075+0.1, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
     else
         axis off
     end
@@ -248,7 +254,7 @@ inj_end_min = (inj_end-start_mark)./fps/conv_x;
 
 
     subplot(prow,pcol,PBSM1(k+nFilesB,:))
-    pl_mean1 = plot(tkmarker_mins, DRN, 'LineWidth', 3, 'Color', 'r');
+    pl_mean1 = plot(tkmarker_mins, DRN, 'LineWidth', 1.5, 'Color', 'r');
     hold on
     ylim([min_plot_y max_plot_y])
     xlim([min_plot_x max_plot_x])
@@ -270,10 +276,12 @@ inj_end_min = (inj_end-start_mark)./fps/conv_x;
         ax.YLabel.String = [{'Mouse'; num2str(k)}];
         ax.YLabel.Color = [0 0 0];
         ax.XLabel.String = ['Minutes'];
+        ax.XLabel.FontSize = 14;
+        ax.XAxis.FontSize = 12;
         ax.YLabel.Position = newPost + [1 0 0];
         
-        plot([75 75], [-0.1+0.1 -0.05+0.1], 'Color', 'k','LineWidth',3)
-        text(77, -0.075+0.1, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
+        plot([max_plot_x-10 max_plot_x-10], [-0.1+0.1 -0.05+0.1], 'Color', 'k','LineWidth',3)
+        text(max_plot_x-8, -0.075+0.1, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
     else
         axis off
     end
@@ -310,42 +318,51 @@ all_marks = {'o','square','^','diamond'};
 marker_size = {7.5,6,3};
 
 subplot(prow,pcol, FM1_lick)
-% stem(BehTime+FM1_bStart, mean(Formalin,2), 'LineWidth', 3, 'Color', 'k')
 hold off
-for i = 1:4
-stem(BehTime+FM1_bStart, Formalin(:,i), 'LineWidth', 1.5, 'LineStyle', '-', ...
-    'DisplayName', ['Mouse ' num2str(i)],'Marker', all_marks{i},'MarkerSize',marker_size{2})
+% for i = 1:3
+% stem(BehTime+FM1_bStart, Formalin(:,i), 'LineWidth', 1.5, 'LineStyle', '-', ...
+%     'DisplayName', ['Mouse ' num2str(i)],'Marker', all_marks{i},'MarkerSize',marker_size{2})
+% hold on
+% end
+breakplot_stem(BehTime+FM1_bStart,mean(Formalin,2),50,100,'Patch')
+stem(BehTime+FM1_bStart, mean(Formalin,2), 'LineWidth', 3, 'Color', 'k');
 hold on
-end
 xlim([min_plot_x max_plot_x])
 ylim([0 max(Beh(:))])
 yticks([0 50 100 150])
-legend('Location','best')
+% legend('Location','best')
 ax = gca;
 ax.Box = 'off';
 ax.Color = 'none';
 ax.XLabel.String = ['Minutes'];
-yl = ylabel('# of Licks');
-yl.FontSize = 12;
+ax.XLabel.FontSize = 14;
+ax.XAxis.FontSize = 12;
+ax.YAxis.FontSize = 12;
+yl = ylabel('Ave # of Licks');
+yl.FontSize = 14;
 %yl.Rotation = 0;
 
 subplot(prow,pcol, PBSM1_lick)
-% stem(BehTime+PBS1_bStart, mean(PBS,2), 'LineWidth', 3, 'Color', 'k')
 hold off
-for j = 1:3
-stem(BehTime+PBS1_bStart, PBS(:,1), 'LineWidth', 1.5, 'LineStyle', '-', ...
-    'DisplayName', ['Mouse ' num2str(j)], 'Marker', all_marks{j},'MarkerSize',marker_size{j})
-hold on
-end
+% for j = 1:3    
+% stem(BehTime+PBS1_bStart, PBS(:,1), 'LineWidth', 1.5, 'LineStyle', '-', ...
+%     'DisplayName', ['Mouse ' num2str(j)], 'Marker', all_marks{j},'MarkerSize',marker_size{j})
+% hold on
+% end
+stem(BehTime+PBS1_bStart, mean(PBS,2), 'LineWidth', 3, 'Color', 'k');
+hold on;
 xlim([min_plot_x max_plot_x])
 ylim([0 max(Beh(:))])
 yticks([0 50 100 150])
-legend('Location','best')
+% legend('Location','best')
 ax = gca;
 ax.Box = 'off';
 ax.Color = 'none';
 ax.XLabel.String = ['Minutes'];
-yl = ylabel('# of Licks');
-yl.FontSize = 12;
+ax.XLabel.FontSize = 14;
+ax.XAxis.FontSize = 12;
+ax.YAxis.FontSize = 12;
+yl = ylabel('Ave # of Licks');
+yl.FontSize = 14;
 %yl.Rotation = 0;
 hold off
