@@ -83,9 +83,9 @@ i = y >= y_break_end;
 y2 = y - i.*y_break_width;
 
 % PLOT THE MAPPED DATA
-h    = stem(x,y,'.');
+h    = stem(x,y);
 ylim = get(gca,'ylim');
-h    = stem(x,y2,'.');
+h    = stem(x,y2);
 set(gca,'ylim',ylim-[0 y_break_width]);
 
 % CREATE THE "BREAK" EFFECT

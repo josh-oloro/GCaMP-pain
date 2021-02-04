@@ -10,7 +10,7 @@ max_plot_x = 65;
 min_plot_y = -0.1;
 max_plot_y = 0.1;
 
-prow = 10;
+prow = 11;
 pcol = 21;
 
 tplot1 = 4:7;
@@ -33,7 +33,8 @@ R2H = text(0, 0.5, 'Dorsal Raphe Nucleus', 'FontSize', 16,...
     'fontweight', 'bold', 'Rotation', 90);
 axis off
 
-subplot(prow,pcol,190)
+subplot(prow,pcol,[190,211])
+hold off
 R3H = text(0, 0.5, 'Behavior', 'FontSize', 16,...
     'HorizontalAlignment', 'center', 'VerticalAlignment', 'bottom',...
     'fontweight', 'bold', 'Rotation', 90);
@@ -48,7 +49,8 @@ FM1 = [23	24	25	26	27	28 29 30 31;
 
 % FM1_img1 = [29 30 31 50 51 52 71 72 73];
 % FM1_img2 = [113 114 115 134 135 136 155 156 157];
-FM1_lick = [191 192 193 194 195 196 197 198 199];
+% FM1_lick = [191 192 193 194 195 196 197 198 199]; 
+FM1_lick = [191:199, 212:220];
 
 % imagesc_min = -0.1;
 % imagesc_max = 0.1;
@@ -324,11 +326,11 @@ hold off
 %     'DisplayName', ['Mouse ' num2str(i)],'Marker', all_marks{i},'MarkerSize',marker_size{2})
 % hold on
 % end
-xlim([min_plot_x max_plot_x])
-breakplot_stem(BehTime+FM1_bStart,mean(Formalin,2),50,100,'Patch')
-hold on
+% breakplot_stem_x(BehTime+FM1_bStart,mean(Formalin,2),50,100,'RPatch')
 stem(BehTime+FM1_bStart, mean(Formalin,2), 'LineWidth', 3, 'Color', 'k');
-% ylim([0 max(Beh(:))])
+hold on
+xlim([min_plot_x max_plot_x])
+ylim([0 max(Beh(:))])
 yticks([0 50 100 150])
 % legend('Location','best')
 ax = gca;
@@ -338,7 +340,7 @@ ax.XLabel.String = ['Minutes'];
 ax.XLabel.FontSize = 14;
 ax.XAxis.FontSize = 12;
 ax.YAxis.FontSize = 12;
-yl = ylabel('Ave # of Licks');
+yl = ylabel('Mean # of Licks');
 yl.FontSize = 14;
 %yl.Rotation = 0;
 
@@ -362,7 +364,7 @@ ax.XLabel.String = ['Minutes'];
 ax.XLabel.FontSize = 14;
 ax.XAxis.FontSize = 12;
 ax.YAxis.FontSize = 12;
-yl = ylabel('Ave # of Licks');
+yl = ylabel('Mean # of Licks');
 yl.FontSize = 14;
 %yl.Rotation = 0;
 hold off
