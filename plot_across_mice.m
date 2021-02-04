@@ -67,19 +67,19 @@ PBSM1 = FM1 + ceil(pcol/2);
 PBSM1_lick = FM1_lick + ceil(pcol/2);
 
 for j = 1:nFilesA
-    load(Formalin_mat{j})
-    
-    CA = [mean_adj1];
-    DRN = [mean_adj2];
-    
-    conv_x = 60;
-    tkmarkers = [1:size(mean_adj1, 1)] - start_mark;
-    tkmarker_mins = tkmarkers./fps/conv_x;
-    
-    inj_start_min = (inj_start-start_mark)./fps/conv_x;
-    inj_end_min = (inj_end-start_mark)./fps/conv_x;
-    
-    
+load (Formalin_mat{j}, '-regexp', '^(?!data_adj1|data_adj2$)\w')
+
+CA = [mean_adj1];
+DRN = [mean_adj2];
+
+conv_x = 60;
+tkmarkers = [1:size(mean_adj1, 1)] - start_mark;
+tkmarker_mins = tkmarkers./fps/conv_x;
+
+inj_start_min = (inj_start-start_mark)./fps/conv_x;
+inj_end_min = (inj_end-start_mark)./fps/conv_x;
+
+
     subplot(prow,pcol,FM1(j,:))
     pl_mean1 = plot(tkmarker_mins, CA, 'LineWidth', 1.5);
     hold on
@@ -112,26 +112,26 @@ for j = 1:nFilesA
     else
         axis off
     end
-    
-    % subplot(prow,pcol, FM1_img1)
-    % imagesc(flipud(rot90(image1)), [imagesc_min,imagesc_max]);
-    % set(gca,'XDir','reverse','YDir','normal')
-    % hold on
-    % plot([A_ROI1_xe A_ROI1_xs A_ROI1_xs A_ROI1_xe A_ROI1_xe],...
-    %     [A_ROI1_ye A_ROI1_ye A_ROI1_ys A_ROI1_ys A_ROI1_ye],'r')
-    % text((A_ROI1_xe+A_ROI1_xs)/2, A_ROI1_ye+2, '1','FontSize',8, 'Color', 'r');
-    % plot([A_ROI2_xe A_ROI2_xs A_ROI2_xs A_ROI2_xe A_ROI2_xe],...
-    %     [A_ROI2_ye A_ROI2_ye A_ROI2_ys A_ROI2_ys A_ROI2_ye],'r')
-    % text((A_ROI2_xe+A_ROI2_xs)/2, A_ROI2_ye+2, '2','FontSize',8, 'Color', 'r');
-    % plot([A_ROI3_xe A_ROI3_xs A_ROI3_xs A_ROI3_xe A_ROI3_xe],...
-    %     [A_ROI3_ye A_ROI3_ye A_ROI3_ys A_ROI3_ys A_ROI3_ye],'r')
-    % text((A_ROI3_xe+A_ROI3_xs)/2, A_ROI3_ye+2, '3','FontSize',8, 'Color', 'r');
-    % title({plot_title1, ['Frame ',num2str(sample_frame1)]})
-    % colormap (jet);
-    % colorbar
-    % axis off
-    
-    
+
+% subplot(prow,pcol, FM1_img1)
+% imagesc(flipud(rot90(image1)), [imagesc_min,imagesc_max]);
+% set(gca,'XDir','reverse','YDir','normal')
+% hold on
+% plot([A_ROI1_xe A_ROI1_xs A_ROI1_xs A_ROI1_xe A_ROI1_xe],...
+%     [A_ROI1_ye A_ROI1_ye A_ROI1_ys A_ROI1_ys A_ROI1_ye],'r')
+% text((A_ROI1_xe+A_ROI1_xs)/2, A_ROI1_ye+2, '1','FontSize',8, 'Color', 'r');
+% plot([A_ROI2_xe A_ROI2_xs A_ROI2_xs A_ROI2_xe A_ROI2_xe],...
+%     [A_ROI2_ye A_ROI2_ye A_ROI2_ys A_ROI2_ys A_ROI2_ye],'r')
+% text((A_ROI2_xe+A_ROI2_xs)/2, A_ROI2_ye+2, '2','FontSize',8, 'Color', 'r');
+% plot([A_ROI3_xe A_ROI3_xs A_ROI3_xs A_ROI3_xe A_ROI3_xe],...
+%     [A_ROI3_ye A_ROI3_ye A_ROI3_ys A_ROI3_ys A_ROI3_ye],'r')
+% text((A_ROI3_xe+A_ROI3_xs)/2, A_ROI3_ye+2, '3','FontSize',8, 'Color', 'r');
+% title({plot_title1, ['Frame ',num2str(sample_frame1)]})
+% colormap (jet);
+% colorbar
+% axis off
+
+
     subplot(prow,pcol,FM1(j+nFilesA,:))
     pl_mean1 = plot(tkmarker_mins, DRN, 'LineWidth', 1.5, 'Color', 'r');
     hold on
@@ -164,42 +164,42 @@ for j = 1:nFilesA
     else
         axis off
     end
-    
-    % subplot(prow,pcol, FM1_img2)
-    % imagesc(flipud(rot90(image2)), [imagesc_min,imagesc_max]);
-    % set(gca,'XDir','reverse','YDir','normal')
-    % hold on
-    % plot([B_ROI1_xe B_ROI1_xs B_ROI1_xs B_ROI1_xe B_ROI1_xe],...
-    %     [B_ROI1_ye B_ROI1_ye B_ROI1_ys B_ROI1_ys B_ROI1_ye],'r')
-    % text((B_ROI1_xe+B_ROI1_xs)/2, B_ROI1_ye+2, '1','FontSize',8, 'Color', 'r');
-    % plot([B_ROI2_xe B_ROI2_xs B_ROI2_xs B_ROI2_xe B_ROI2_xe],...
-    %     [B_ROI2_ye B_ROI2_ye B_ROI2_ys B_ROI2_ys B_ROI2_ye],'r')
-    % text((B_ROI2_xe+B_ROI2_xs)/2, B_ROI2_ye+2, '2','FontSize',8, 'Color', 'r');
-    % plot([B_ROI3_xe B_ROI3_xs B_ROI3_xs B_ROI3_xe B_ROI3_xe],...
-    %     [B_ROI3_ye B_ROI3_ye B_ROI3_ys B_ROI3_ys B_ROI3_ye],'r')
-    % text((B_ROI3_xe+B_ROI3_xs)/2, B_ROI3_ye+2, '3','FontSize',8, 'Color', 'r');
-    % title({plot_title2, ['Frame ',num2str(sample_frame2)]})
-    % colormap (jet);
-    % colorbar
-    % axis off
-    
+
+% subplot(prow,pcol, FM1_img2)
+% imagesc(flipud(rot90(image2)), [imagesc_min,imagesc_max]);
+% set(gca,'XDir','reverse','YDir','normal')
+% hold on
+% plot([B_ROI1_xe B_ROI1_xs B_ROI1_xs B_ROI1_xe B_ROI1_xe],...
+%     [B_ROI1_ye B_ROI1_ye B_ROI1_ys B_ROI1_ys B_ROI1_ye],'r')
+% text((B_ROI1_xe+B_ROI1_xs)/2, B_ROI1_ye+2, '1','FontSize',8, 'Color', 'r');
+% plot([B_ROI2_xe B_ROI2_xs B_ROI2_xs B_ROI2_xe B_ROI2_xe],...
+%     [B_ROI2_ye B_ROI2_ye B_ROI2_ys B_ROI2_ys B_ROI2_ye],'r')
+% text((B_ROI2_xe+B_ROI2_xs)/2, B_ROI2_ye+2, '2','FontSize',8, 'Color', 'r');
+% plot([B_ROI3_xe B_ROI3_xs B_ROI3_xs B_ROI3_xe B_ROI3_xe],...
+%     [B_ROI3_ye B_ROI3_ye B_ROI3_ys B_ROI3_ys B_ROI3_ye],'r')
+% text((B_ROI3_xe+B_ROI3_xs)/2, B_ROI3_ye+2, '3','FontSize',8, 'Color', 'r');
+% title({plot_title2, ['Frame ',num2str(sample_frame2)]})
+% colormap (jet);
+% colorbar
+% axis off
+
 end
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 for k = 1:nFilesB
-    load(PBS_mat{k})
-    
-    CA = [mean_adj1];
-    DRN = [mean_adj2];
-    
-    conv_x = 60;
-    tkmarkers = [1:size(mean_adj1, 1)] - start_mark;
-    tkmarker_mins = tkmarkers./fps/conv_x;
-    
-    inj_start_min = (inj_start-start_mark)./fps/conv_x;
-    inj_end_min = (inj_end-start_mark)./fps/conv_x;
-    
+load(PBS_mat{k}, '-regexp', '^(?!data_adj1|data_adj2$)\w')
+
+CA = [mean_adj1];
+DRN = [mean_adj2];
+
+conv_x = 60;
+tkmarkers = [1:size(mean_adj1, 1)] - start_mark;
+tkmarker_mins = tkmarkers./fps/conv_x;
+
+inj_start_min = (inj_start-start_mark)./fps/conv_x;
+inj_end_min = (inj_end-start_mark)./fps/conv_x;
+
     subplot(prow,pcol,PBSM1(k,:))
     pl_mean1 = plot(tkmarker_mins, CA, 'LineWidth', 1.5);
     hold on
@@ -232,27 +232,27 @@ for k = 1:nFilesB
     else
         axis off
     end
-    
-    
-    % subplot(prow,pcol, PBSM1_img1)
-    % imagesc(flipud(rot90(image1)), [imagesc_min,imagesc_max]);
-    % set(gca,'XDir','reverse','YDir','normal')
-    % hold on
-    % plot([A_ROI1_xe A_ROI1_xs A_ROI1_xs A_ROI1_xe A_ROI1_xe],...
-    %     [A_ROI1_ye A_ROI1_ye A_ROI1_ys A_ROI1_ys A_ROI1_ye],'r')
-    % text((A_ROI1_xe+A_ROI1_xs)/2, A_ROI1_ye+2, '1','FontSize',8, 'Color', 'r');
-    % plot([A_ROI2_xe A_ROI2_xs A_ROI2_xs A_ROI2_xe A_ROI2_xe],...
-    %     [A_ROI2_ye A_ROI2_ye A_ROI2_ys A_ROI2_ys A_ROI2_ye],'r')
-    % text((A_ROI2_xe+A_ROI2_xs)/2, A_ROI2_ye+2, '2','FontSize',8, 'Color', 'r');
-    % plot([A_ROI3_xe A_ROI3_xs A_ROI3_xs A_ROI3_xe A_ROI3_xe],...
-    %     [A_ROI3_ye A_ROI3_ye A_ROI3_ys A_ROI3_ys A_ROI3_ye],'r')
-    % text((A_ROI3_xe+A_ROI3_xs)/2, A_ROI3_ye+2, '3','FontSize',8, 'Color', 'r');
-    % title({plot_title1, ['Frame ',num2str(sample_frame1)]})
-    % colormap (jet);
-    % colorbar
-    % axis off
-    
-    
+
+
+% subplot(prow,pcol, PBSM1_img1)
+% imagesc(flipud(rot90(image1)), [imagesc_min,imagesc_max]);
+% set(gca,'XDir','reverse','YDir','normal')
+% hold on
+% plot([A_ROI1_xe A_ROI1_xs A_ROI1_xs A_ROI1_xe A_ROI1_xe],...
+%     [A_ROI1_ye A_ROI1_ye A_ROI1_ys A_ROI1_ys A_ROI1_ye],'r')
+% text((A_ROI1_xe+A_ROI1_xs)/2, A_ROI1_ye+2, '1','FontSize',8, 'Color', 'r');
+% plot([A_ROI2_xe A_ROI2_xs A_ROI2_xs A_ROI2_xe A_ROI2_xe],...
+%     [A_ROI2_ye A_ROI2_ye A_ROI2_ys A_ROI2_ys A_ROI2_ye],'r')
+% text((A_ROI2_xe+A_ROI2_xs)/2, A_ROI2_ye+2, '2','FontSize',8, 'Color', 'r');
+% plot([A_ROI3_xe A_ROI3_xs A_ROI3_xs A_ROI3_xe A_ROI3_xe],...
+%     [A_ROI3_ye A_ROI3_ye A_ROI3_ys A_ROI3_ys A_ROI3_ye],'r')
+% text((A_ROI3_xe+A_ROI3_xs)/2, A_ROI3_ye+2, '3','FontSize',8, 'Color', 'r');
+% title({plot_title1, ['Frame ',num2str(sample_frame1)]})
+% colormap (jet);
+% colorbar
+% axis off
+
+
     subplot(prow,pcol,PBSM1(k+nFilesB,:))
     pl_mean1 = plot(tkmarker_mins, DRN, 'LineWidth', 1.5, 'Color', 'r');
     hold on
@@ -285,24 +285,24 @@ for k = 1:nFilesB
     else
         axis off
     end
-    
-    % subplot(prow,pcol, PBSM1_img2)
-    % imagesc(flipud(rot90(image2)), [imagesc_min,imagesc_max]);
-    % set(gca,'XDir','reverse','YDir','normal')
-    % hold on
-    % plot([B_ROI1_xe B_ROI1_xs B_ROI1_xs B_ROI1_xe B_ROI1_xe],...
-    %     [B_ROI1_ye B_ROI1_ye B_ROI1_ys B_ROI1_ys B_ROI1_ye],'r')
-    % text((B_ROI1_xe+B_ROI1_xs)/2, B_ROI1_ye+2, '1','FontSize',8, 'Color', 'r');
-    % plot([B_ROI2_xe B_ROI2_xs B_ROI2_xs B_ROI2_xe B_ROI2_xe],...
-    %     [B_ROI2_ye B_ROI2_ye B_ROI2_ys B_ROI2_ys B_ROI2_ye],'r')
-    % text((B_ROI2_xe+B_ROI2_xs)/2, B_ROI2_ye+2, '2','FontSize',8, 'Color', 'r');
-    % plot([B_ROI3_xe B_ROI3_xs B_ROI3_xs B_ROI3_xe B_ROI3_xe],...
-    %     [B_ROI3_ye B_ROI3_ye B_ROI3_ys B_ROI3_ys B_ROI3_ye],'r')
-    % text((B_ROI3_xe+B_ROI3_xs)/2, B_ROI3_ye+2, '3','FontSize',8, 'Color', 'r');
-    % title({plot_title2, ['Frame ',num2str(sample_frame2)]})
-    % colormap (jet);
-    % colorbar
-    % axis off
+
+% subplot(prow,pcol, PBSM1_img2)
+% imagesc(flipud(rot90(image2)), [imagesc_min,imagesc_max]);
+% set(gca,'XDir','reverse','YDir','normal')
+% hold on
+% plot([B_ROI1_xe B_ROI1_xs B_ROI1_xs B_ROI1_xe B_ROI1_xe],...
+%     [B_ROI1_ye B_ROI1_ye B_ROI1_ys B_ROI1_ys B_ROI1_ye],'r')
+% text((B_ROI1_xe+B_ROI1_xs)/2, B_ROI1_ye+2, '1','FontSize',8, 'Color', 'r');
+% plot([B_ROI2_xe B_ROI2_xs B_ROI2_xs B_ROI2_xe B_ROI2_xe],...
+%     [B_ROI2_ye B_ROI2_ye B_ROI2_ys B_ROI2_ys B_ROI2_ye],'r')
+% text((B_ROI2_xe+B_ROI2_xs)/2, B_ROI2_ye+2, '2','FontSize',8, 'Color', 'r');
+% plot([B_ROI3_xe B_ROI3_xs B_ROI3_xs B_ROI3_xe B_ROI3_xe],...
+%     [B_ROI3_ye B_ROI3_ye B_ROI3_ys B_ROI3_ys B_ROI3_ye],'r')
+% text((B_ROI3_xe+B_ROI3_xs)/2, B_ROI3_ye+2, '3','FontSize',8, 'Color', 'r');
+% title({plot_title2, ['Frame ',num2str(sample_frame2)]})
+% colormap (jet);
+% colorbar
+% axis off
 end
 
 
@@ -328,7 +328,7 @@ xlim([min_plot_x max_plot_x])
 breakplot_stem(BehTime+FM1_bStart,mean(Formalin,2),50,100,'Patch')
 hold on
 stem(BehTime+FM1_bStart, mean(Formalin,2), 'LineWidth', 3, 'Color', 'k');
-ylim([0 max(Beh(:))])
+% ylim([0 max(Beh(:))])
 yticks([0 50 100 150])
 % legend('Location','best')
 ax = gca;
@@ -344,7 +344,7 @@ yl.FontSize = 14;
 
 subplot(prow,pcol, PBSM1_lick)
 hold off
-% for j = 1:3
+% for j = 1:3    
 % stem(BehTime+PBS1_bStart, PBS(:,1), 'LineWidth', 1.5, 'LineStyle', '-', ...
 %     'DisplayName', ['Mouse ' num2str(j)], 'Marker', all_marks{j},'MarkerSize',marker_size{j})
 % hold on
