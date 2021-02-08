@@ -4,7 +4,7 @@ data = {'L_Pain_adj_ROI.mat', 'M_Pain_adj_ROI.mat',...
     'N_Pain_adj_ROI.mat', 'O_Pain_adj_ROI.mat',...
     'P_Pain_adj_ROI.mat', 'Q_Pain_adj_ROI.mat', 'R_Pain_adj_ROI.mat'};
 lick_i = [1:4, 1:3];
-f = zeros(1, numel(data));
+f = zeros(6, numel(data));
 
 for data_i = 1:numel(data)
     clearvars -except data lick_i f data_i
