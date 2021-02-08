@@ -43,5 +43,5 @@ for data_i = 1:numel(data)
         end
         roi_bin(ti) = mean(roi( t_roi >= st & t_roi <= et));
     end
-    [f(data_i), ~] = discrete_continuous_info_fast(lick, roi_bin);
+    [f(data_i, :), ~] = discrete_continuous_info_fast(lick, roi_bin);
 end
