@@ -15,7 +15,8 @@ for data_i = 1:numel(data)
     tkmarkers = [1:size(mean_adj1_ROI1, 1)] - start_mark;
     tkmarker_mins = tkmarkers./fps/conv_x;
     
-    all_ROI = [mean_adj1, mean_adj2];
+    all_ROI = [mean_adj1_ROI1, mean_adj1_ROI2, mean_adj1_ROI3,...
+        mean_adj2_ROI1, mean_adj2_ROI2, mean_adj2_ROI3];
     
     clearvars -except tkmarker_mins BehTime Formalin PBS...
         data lick_i f data_i all_ROI
@@ -30,8 +31,8 @@ for data_i = 1:numel(data)
     t_lick = BehTime + 2.5;
     roi_bin = zeros(size(t_lick));
     
-    for ri = 1:size(all_ROI, 1);
-        roi = all_ROI(ri,:);
+    for ri = 1:size(all_ROI, 2);
+        roi = all_ROI(:, ri);
         
         for ti = 1:size(t_lick, 1)
             st = t_lick(ti);
