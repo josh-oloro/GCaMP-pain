@@ -5,10 +5,10 @@ nFilesA = numel (Formalin_mat);
 nFilesB = numel (PBS_mat);
 
 f1 = figure( 'Units', 'normalized', 'Position', [0.1 0.25 1 1] );
-min_plot_x = -15;
-max_plot_x = 65;
-min_plot_y = -0.1;
-max_plot_y = 0.1;
+min_plot_x = -10;
+max_plot_x = 60;
+min_plot_y = -0.15;
+max_plot_y = 0.15;
 
 prow = 11;
 pcol = 21;
@@ -16,7 +16,7 @@ pcol = 21;
 tplot1 = 4:7;
 
 subplot(prow,pcol,tplot1)
-text(0, 0.5, 'Formalin Group', 'FontSize', 20,...
+text(0, 0.5, 'Formalin Group', 'FontSize', 21,...
     'HorizontalAlignment', 'left', 'VerticalAlignment', 'Middle',...
     'fontweight', 'bold')
 axis off
@@ -58,7 +58,7 @@ FM1_lick = [191:199, 212:220];
 tplot2 = [4:7] + ceil(pcol/2);
 
 subplot(prow,pcol,tplot2)
-text(0, 0.5, 'PBS Group', 'FontSize', 20,...
+text(0, 0.5, 'PBS Group', 'FontSize', 21,...
     'HorizontalAlignment', 'left', 'VerticalAlignment', 'Middle',...
     'fontweight', 'bold')
 axis off
@@ -74,6 +74,9 @@ load (Formalin_mat{j}, '-regexp', '^(?!data_adj1|data_adj2$)\w')
 CA = [mean_adj1];
 DRN = [mean_adj2];
 
+%%
+fps = 10.68;
+%%
 conv_x = 60;
 tkmarkers = [1:size(mean_adj1, 1)] - start_mark;
 tkmarker_mins = tkmarkers./fps/conv_x;
@@ -105,12 +108,12 @@ inj_end_min = (inj_end-start_mark)./fps/conv_x;
         ax.YLabel.String = [{'Mouse'; num2str(j)}];
         ax.YLabel.Color = [0 0 0];
         ax.XLabel.String = ['Minutes'];
-        ax.XLabel.FontSize = 14;
-        ax.XAxis.FontSize = 12;
+        ax.XLabel.FontSize = 15;
+        ax.XAxis.FontSize = 14;
         ax.YLabel.Position = newPost + [1 0 0];
         
         plot([max_plot_x-10 max_plot_x-10], [-0.1+0.1 -0.05+0.1], 'Color', 'k','LineWidth',3)
-        text(max_plot_x-8, -0.075+0.1, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
+        text(max_plot_x-9, -0.075+0.1, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
     else
         axis off
     end
@@ -157,12 +160,12 @@ inj_end_min = (inj_end-start_mark)./fps/conv_x;
         ax.YLabel.String = [{'Mouse'; num2str(j)}];
         ax.YLabel.Color = [0 0 0];
         ax.XLabel.String = ['Minutes'];
-        ax.XLabel.FontSize = 14;
-        ax.XAxis.FontSize = 12;
+        ax.XLabel.FontSize = 15;
+        ax.XAxis.FontSize = 14;
         ax.YLabel.Position = newPost + [1 0 0];
         
         plot([max_plot_x-10 max_plot_x-10], [-0.1+0.1 -0.05+0.1], 'Color', 'k','LineWidth',3)
-        text(max_plot_x-8, -0.075+0.1, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
+        text(max_plot_x-9, -0.075+0.1, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
     else
         axis off
     end
@@ -195,6 +198,9 @@ load(PBS_mat{k}, '-regexp', '^(?!data_adj1|data_adj2$)\w')
 CA = [mean_adj1];
 DRN = [mean_adj2];
 
+%%%
+fps = 10.68;
+%%%
 conv_x = 60;
 tkmarkers = [1:size(mean_adj1, 1)] - start_mark;
 tkmarker_mins = tkmarkers./fps/conv_x;
@@ -225,12 +231,12 @@ inj_end_min = (inj_end-start_mark)./fps/conv_x;
         ax.YLabel.String = [{'Mouse'; num2str(k)}];
         ax.YLabel.Color = [0 0 0];
         ax.XLabel.String = ['Minutes'];
-        ax.XLabel.FontSize = 14;
-        ax.XAxis.FontSize = 12;
+        ax.XLabel.FontSize = 15;
+        ax.XAxis.FontSize = 14;
         ax.YLabel.Position = newPost + [1 0 0];
         
         plot([max_plot_x-10 max_plot_x-10], [-0.1+0.1 -0.05+0.1], 'Color', 'k','LineWidth',3)
-        text(max_plot_x-8, -0.075+0.1, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
+        text(max_plot_x-9, -0.075+0.1, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
     else
         axis off
     end
@@ -278,12 +284,12 @@ inj_end_min = (inj_end-start_mark)./fps/conv_x;
         ax.YLabel.String = [{'Mouse'; num2str(k)}];
         ax.YLabel.Color = [0 0 0];
         ax.XLabel.String = ['Minutes'];
-        ax.XLabel.FontSize = 14;
-        ax.XAxis.FontSize = 12;
+        ax.XLabel.FontSize = 15;
+        ax.XAxis.FontSize = 14;
         ax.YLabel.Position = newPost + [1 0 0];
         
         plot([max_plot_x-10 max_plot_x-10], [-0.1+0.1 -0.05+0.1], 'Color', 'k','LineWidth',3)
-        text(max_plot_x-8, -0.075+0.1, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
+        text(max_plot_x-9, -0.075+0.1, '\DeltaF/F 0.05', 'HorizontalAlignment', 'left')
     else
         axis off
     end
@@ -314,8 +320,8 @@ load('BehaviorTally')
 % bStart_frame = 14897;
 % FM1_bStart = (bStart_frame - start_mark)./fps/conv_x;
 % PBS1_bStart = (bStart_frame - start_mark)./fps/conv_x;
-FM1_bStart = 2.5;
-PBS1_bStart = 2.5;
+FM1_bStart = 1.27;
+PBS1_bStart = 1.27;
 all_marks = {'o','square','^','diamond'};
 marker_size = {7.5,6,3};
 
@@ -337,9 +343,9 @@ ax = gca;
 ax.Box = 'off';
 ax.Color = 'none';
 ax.XLabel.String = ['Minutes'];
-ax.XLabel.FontSize = 14;
-ax.XAxis.FontSize = 12;
-ax.YAxis.FontSize = 12;
+ax.XLabel.FontSize = 15;
+ax.XAxis.FontSize = 14;
+ax.YAxis.FontSize = 14;
 yl = ylabel('Mean # of Licks');
 yl.FontSize = 14;
 %yl.Rotation = 0;
@@ -361,9 +367,9 @@ ax = gca;
 ax.Box = 'off';
 ax.Color = 'none';
 ax.XLabel.String = ['Minutes'];
-ax.XLabel.FontSize = 14;
-ax.XAxis.FontSize = 12;
-ax.YAxis.FontSize = 12;
+ax.XLabel.FontSize = 15;
+ax.XAxis.FontSize = 14;
+ax.YAxis.FontSize = 14;
 yl = ylabel('Mean # of Licks');
 yl.FontSize = 14;
 %yl.Rotation = 0;

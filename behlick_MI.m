@@ -6,17 +6,22 @@ data = {'L_Pain_adj_ROI.mat', 'M_Pain_adj_ROI.mat',...
 lick_i = [1:4, 1:3];
 f = [];
 
+
 for data_i = 1:numel(data)
     clearvars -except data lick_i f data_i
     load(data{data_i});
     load('BehaviorTally.mat');
     
+    %%
+    fps = 10.68;
+    %%
+
     conv_x = 60;
     tkmarkers = [1:size(mean_adj1_ROI1, 1)] - start_mark;
     tkmarker_mins = tkmarkers./fps/conv_x;
     
     all_ROI = [mean_adj1_ROI1, mean_adj1_ROI2, mean_adj1_ROI3...
-        mean_adj2_ROI1, mean_adj2_ROI2, mean_adj2_ROI3];
+        mean_adj2_ROI1, mean_adj2_ROI2, mean_adj2_ROI3]
     
     clearvars -except tkmarker_mins BehTime Formalin PBS...
         data lick_i f data_i all_ROI
@@ -28,10 +33,10 @@ for data_i = 1:numel(data)
     end
     
     t_roi = tkmarker_mins;
-    t_lick = BehTime + 2.5;
+    t_lick = BehTime + 1.27;
     roi_bin = zeros(size(t_lick));
     
-    for ri = 1:size(all_ROI, 2)
+    for ri = 1:size(all_ROI, 2);
         roi = all_ROI(:, ri);
         
         for ti = 1:size(t_lick, 1)
@@ -74,7 +79,7 @@ x_bar = reordercats(x_bar,{'Formalin 1','Formalin 2','Formalin 3','Formalin 4','
 
 figure
 b = bar(x_bar, z,'grouped','stacked');
-set(b, {'DisplayName'}, {'CeLC ROI 1-3';' ';' ';'DRN ROI 1-3';' ';' '})
+set(b, {'DisplayName'}, {'CeLC ROI 1-3';' ';' ';'DRN ROI 1-3';' ';' '});
 b(1).FaceColor = [0 0.4470 0.7410];
 b(2).FaceColor = [0 0.4470 0.7410];
 b(3).FaceColor = [0 0.4470 0.7410];
@@ -106,7 +111,7 @@ imgsc_labely = {'{CeLC}\newlineROI1', 'CeLC\newlineROI2', 'CeLC\newlineROI3',...
 
 
 figure
-imagesc(f)
+imagesc(f);
 set(gca, 'xticklabel', imgsc_labelx,'FontSize',14);
 set(gca, 'yticklabel', imgsc_labely,'FontSize',14);
 colorbar
@@ -131,8 +136,8 @@ title('Relationship between brain imaging and behavior',...
 ax = gca;
 ax.XAxis.FontSize = 14;
 ax.YAxis.FontSize = 14;
-xlim([0.5 7.5])
-xticks(1:7)
+xlim([0.5 7.5]);
+xticks(1:7);
 xticklabels({'Formalin 1','Formalin 2','Formalin 3','Formalin 4',...
     'PBS 1','PBS 2','PBS 3'});
 
@@ -144,4 +149,4 @@ set(get(get(drn_plot(2),'Annotation'),'LegendInformation'),...
     'IconDisplayStyle','off');
 set(get(get(drn_plot(3),'Annotation'),'LegendInformation'),...
     'IconDisplayStyle','off');
-legend({'CeLC ROIs', 'DRN ROIs'})
+legend({'CeLC ROIs', 'DRN ROIs'});
