@@ -1,3 +1,8 @@
+% %  Variables
+% [f(ri, data_i), ~] = discrete_continuous_info_fast(lick, roi_bin);
+% ri = ROI
+% data_i = mouse
+
 clearvars
 
 data = {'L_Pain_adj_ROI.mat', 'M_Pain_adj_ROI.mat',...
@@ -33,7 +38,7 @@ for data_i = 1:numel(data)
     end
     
     t_roi = tkmarker_mins;
-    t_lick = BehTime + 1.27;
+    t_lick = BehTime + 1.26;
     roi_bin = zeros(size(t_lick));
     
     for ri = 1:size(all_ROI, 2);

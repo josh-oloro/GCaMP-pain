@@ -14,9 +14,9 @@ CEA{3} = mean_adj1_ROI3(st:et);%(start_mark:end);
 % CEA{2} = detrend(mean_adj1_ROI2(st:et));%(start_mark:end);
 % CEA{3} = detrend(mean_adj1_ROI3(st:et));%(start_mark:end);
 
-CEAL{1} = 'ROI1 (CeA)';
-CEAL{2} = 'ROI2 (CeA)';
-CEAL{3} = 'ROI3 (CeA)';
+CEAL{1} = 'ROI1 (CeLC)';
+CEAL{2} = 'ROI2 (CeLC)';
+CEAL{3} = 'ROI3 (CeLC)';
 
 DRN{1} = mean_adj2_ROI1(st:et);%(start_mark:end);
 DRN{2} = mean_adj2_ROI2(st:et);%(start_mark:end);
