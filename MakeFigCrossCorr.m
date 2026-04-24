@@ -10,7 +10,13 @@
 %   crosscor.mat  - rhomat and lagmat arrays produced by MakeMatCrossCorr.m
 %
 % See also: FigCrossCorr (earlier version), MakeMatCrossCorr
- = {'{\bf{CeLC}} ROI1', 'ROI2', 'ROI3',...
+
+% close all
+clearvars
+
+load('crosscor')
+nROI = 6;
+ROI_list_y = {'{\bf{CeLC}} ROI1', 'ROI2', 'ROI3',...
     '{\bf{DRN}} ROI1', 'ROI2', 'ROI3'};
 ROI_list_x = {'ROI1', 'ROI2\newline\bf{CeLC}', 'ROI3',...
     'ROI1', 'ROI2\newline\bf{DRN}', 'ROI3'};

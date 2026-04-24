@@ -8,7 +8,8 @@
 %
 % See also: cross_corr_diff, MI_boxplot
 
-F2 = 0;	PBS2 = 4;
+F1 = 0;	PBS1 = 10;
+F2 = 0;PBS2 = 4;
 F3 = 0;	PBS3 = 8;
 F4 = 2;	
 
