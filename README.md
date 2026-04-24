@@ -18,7 +18,7 @@ This repository provides a complete pipeline to:
 
 ## Requirements
 
-- **MATLAB** (tested with R2019b or later)
+- **MATLAB** (R2019b or later recommended)
 - **Signal Processing Toolbox** — for `xcorr`, `detrend`
 - **Statistics and Machine Learning Toolbox** — for `boxplot`, `prctile`
 - Raw `.raw` CMOS image files (not included; place in a `data/` subfolder relative to the pipeline scripts)

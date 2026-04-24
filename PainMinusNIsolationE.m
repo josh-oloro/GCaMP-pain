@@ -14,6 +14,7 @@
 % exploratory or debugging code. For the published pipeline, see
 % s0_pain_setup.m, s1_pain_preprocessing.m, and s2_pain_ROIselection.m.
 
+diff_aveMat1 = all_normal_matrix(4:40,7:119,:);
 diff_aveMat2 = all_normal_matrix(4:40,129:241,:);
 
 %% compute for relative difference (Reference Frame subtraction)

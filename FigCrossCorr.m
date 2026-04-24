@@ -10,6 +10,12 @@
 %
 % See also: MakeFigCrossCorr (updated version), MakeMatCrossCorr
 
+close all
+clearvars
+
+load('crosscor')
+nROI = 6;
+ROI_list = {'CeLC\newlineROI1', 'CeLC\newlineROI2', 'CeLC\newlineROI3',...
     'DRN\newlineROI1', 'DRN\newlineROI2', 'DRN\newlineROI3'};
 mouse_list = {'Formalin Mouse 1', 'Formalin Mouse 2',...
     'Formalin Mouse 3', 'Formalin Mouse 4', ...

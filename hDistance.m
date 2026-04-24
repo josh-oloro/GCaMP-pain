@@ -12,8 +12,7 @@ function H = hDistance(mat1, mat2)
 %   H : Hellinger distance in [0, 1]; 0 = identical distributions,
 %       1 = completely non-overlapping distributions
 
-
-
+nbin = 200;
 min_bin = min( min(mat1(~isinf(mat1))), min(mat2(~isinf(mat2))) );
 max_bin = max( max(mat1(~isinf(mat1))), max(mat2(~isinf(mat2))) );
 bin_step = (max_bin - min_bin) / nbin;
