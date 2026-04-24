@@ -274,9 +274,10 @@ run('MI_boxplot.m')
 
 ## 👥 Authors & Affiliations
 
-**Josh Olorocisimo** · Rebusi R. · Briones J. · Ohta Y. · Haruta M. · Takehara H. · Tashiro H. · Sasagawa K. · Ohta J.
+**Joshua Philippe Olorocisimo** · Rebusi R. · Briones J. · Ohta Y. · Haruta M. · Takehara H. · Tashiro H. · Sasagawa K. · Ohta J.
 
-Graduate School of Information Science and Technology, Osaka University, Japan
+Nara Institute of Science and Technology, Japan
+olorocisimo.joshua.od9@ms.naist.jp
 
 ---
 
