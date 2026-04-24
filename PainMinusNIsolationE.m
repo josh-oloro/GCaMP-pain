@@ -1,6 +1,19 @@
+%% PainMinusNIsolationE.m
+% Compute ΔF/F and plot signals for a double-implant recording session.
+%
+% An earlier exploratory script that computes ΔF/F from raw normal image
+% matrices (all_normal_matrix), generates video, line plots, and single-pixel
+% analysis for a recording with two CMOS devices implanted simultaneously.
+% Also demonstrates per-pixel plotting and single-neuron ROI extraction.
+%
+% Requires in the workspace:
+%   all_normal_matrix  - Raw background-subtracted pixel data (full sensor)
+%   frame_time         - Per-frame acquisition time (used to compute fps)
+%
+% Note: This script was used during early analysis and may contain
+% exploratory or debugging code. For the published pipeline, see
+% s0_pain_setup.m, s1_pain_preprocessing.m, and s2_pain_ROIselection.m.
 
-
-diff_aveMat1 = all_normal_matrix(4:40,7:119,:);
 diff_aveMat2 = all_normal_matrix(4:40,129:241,:);
 
 %% compute for relative difference (Reference Frame subtraction)

@@ -1,4 +1,22 @@
+%% imagesc_code.m
+% Display ΔF/F heatmap images with ROI outlines overlaid.
+%
+% Loads ΔF/F data and ROI boundary coordinates from the workspace and
+% generates a two-panel imagesc figure (CeA and DRN) showing the ΔF/F
+% heatmap at a specified sample frame, with ROI rectangles and labels.
+%
+% Requires in the workspace (from loading an _adj_ROI.mat file or from
+% s2_pain_ROIselection.m):
+%   data_adj1, data_adj2        - ΔF/F arrays for CeA and DRN
+%   A_ROI*_xs/xe/ys/ye          - CeA ROI pixel coordinate ranges
+%   B_ROI*_xs/xe/ys/ye          - DRN ROI pixel coordinate ranges
+%   minVal1, maxVal1, minVal2, maxVal2 - Color scale limits
+%   plot_title1, plot_title2    - Panel titles
+%   sample_frame                - Frame number to display
+%
+% See also: s2_pain_ROIselection (which includes similar visualization)
 %% Image code with ROI
+
 sample_frame = 6942;
 
 figure

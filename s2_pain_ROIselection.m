@@ -1,4 +1,24 @@
-%% TODO: remove offset in signals (spikes)
+%% s2_pain_ROIselection.m
+% Step 2 of the GCaMP-pain pipeline.
+%
+% Loads the ΔF/F data saved by s1_pain_preprocessing.m and extracts mean
+% and SEM signals from three manually defined rectangular ROIs in each brain
+% region (CeA and DRN). Also computes a background signal by masking out the
+% ROI pixels. Generates imagesc plots with ROI outlines and saves results.
+%
+% Before running:
+%   - Load or run s1_pain_preprocessing.m to produce data_adj1 and data_adj2,
+%     OR update the load() call at the top with the correct .mat filename.
+%   - Set A_ROI*_xs/xe/ys/ye for the three CeA ROI pixel coordinate ranges.
+%   - Set B_ROI*_xs/xe/ys/ye for the three DRN ROI pixel coordinate ranges.
+%   - Set mat_name to the desired output filename (e.g., 'E_Pain_adj_ROI').
+%
+% Saved outputs:
+%   mat/<mat_name>.mat  - Per-ROI mean/SEM time series, ROI boundaries,
+%                         sample frame images
+%
+% Note: x and y in the matrix correspond to y and x in imagesc, respectively.
+
 % Get mean through time per pixel
 % Substract mean (offset)
 

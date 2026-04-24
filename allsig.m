@@ -1,4 +1,22 @@
-sig_frame = zeros(1, size(aveMat2_adj, 3));
+%% allsig.m
+% Plot single-ROI signal vs whole-frame mean, with significance markers.
+%
+% For each frame, compares the mean pixel value within a user-defined ROI
+% against the 2.5–97.5 percentile range of the background (non-ROI) pixels.
+% Frames where the ROI mean falls outside this range are flagged as
+% significant (sig_frame = 1) and marked with vertical lines on the plot.
+%
+% Requires in the workspace (from s1_pain_preprocessing.m or equivalent):
+%   aveMat2_adj        - ΔF/F array for one brain region
+%   aveMat1_adj        - ΔF/F array for the other brain region
+%   all_normal_matrix  - Raw background-subtracted pixel data (for time axis)
+%   frame_time         - Per-frame acquisition time
+%   minVal4, maxVal4, minVal5, maxVal5 - Color/value scale limits
+%   newnumFile         - Total number of frames
+%
+% Configure:
+%   roi_x_s/e, roi_y_s/e - ROI pixel coordinate ranges
+
 for fileInd = 1:size(aveMat2_adj, 3)
     vidMat1 = aveMat2_adj(:,:,fileInd);
     

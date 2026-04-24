@@ -1,15 +1,26 @@
-% close all
-%%
-fps = 10.68;
-%%
-st = inj_end;
-et = 60*60*fps + inj_end; %times 60 to convert to time
+%% auto_corr_diff.m
+% Auto-correlation within a single brain region (CeA or DRN).
+%
+% Computes the normalized cross-correlation of first-differenced signals
+% between all ROI pairs within the same brain region over the 60-minute
+% post-injection window. The brain region is selected interactively.
+%
+% Requires in the workspace (from loading an _adj_ROI.mat file):
+%   mean_adj1_ROI1/2/3  - Mean CeA ΔF/F signals per ROI
+%   mean_adj2_ROI1/2/3  - Mean DRN ΔF/F signals per ROI
+%   inj_end             - Frame index marking end of injection period
+%
+% Configure:
+%   fps         - Frame rate (default 10.68 fps)
+%   lagInMinute - Maximum lag in minutes to evaluate (default 1)
+%   bregion     - Brain region: 'CEA' or 'DRN' (prompted at runtime)
+%
+% Outputs (in workspace):
+%   aabest_lag_tab - Best lag (frames) for each within-region ROI pair
+%   aarho_tab      - Peak cross-correlation coefficient for each pair
+%
+% See also: cross_corr_diff (between-region version)
 
-lagInMinute = 1;
-lag = lagInMinute*60*fps;
-
-
-bregion = input('Enter brain region (CEA/DRN): ', 's');
 
 switch bregion
     

@@ -1,10 +1,28 @@
-% close all
-%%
-fps = 10.68;
-%%
-st = inj_end;
-et = 60*60*fps + inj_end; %times 60 to convert to time
-lagInMinute = 1;
+%% cross_corr_diff.m
+% Cross-correlation between CeA and DRN ROI signals using first differences.
+%
+% Computes the normalized cross-correlation of the first-differenced signals
+% (diff(x), diff(y)) for each CeA–DRN ROI pair over the 60-minute
+% post-injection window. Using first differences improves stationarity.
+% Produces a formatted subplot figure with title, row/column headers, and
+% lag/rho annotations; stores best lag and rho in summary tables.
+%
+% Requires in the workspace (from loading an _adj_ROI.mat file):
+%   mean_adj1_ROI1/2/3  - Mean CeA ΔF/F signals per ROI
+%   mean_adj2_ROI1/2/3  - Mean DRN ΔF/F signals per ROI
+%   inj_end             - Frame index marking end of injection period
+%
+% Configure:
+%   fps          - Frame rate (default 10.68 fps)
+%   lagInMinute  - Maximum lag in minutes to evaluate (default 1)
+%
+% Outputs (in workspace):
+%   aabest_lag_tab - Best lag (frames) for each CeA–DRN ROI pair
+%   aarho_tab      - Peak cross-correlation coefficient for each pair
+%
+% See also: cross_corr (non-differenced version), auto_corr_diff
+% % close all
+
 lag = lagInMinute*60*fps;
 
 CEA{1} = mean_adj1_ROI1(st:et);%(start_mark:end);

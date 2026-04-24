@@ -1,7 +1,13 @@
-close all
-clearvars
-
-fm = [0.128134569000000;0.0998009440000000;0.100726870000000;0.165736132000000;0.109549913000000;0.136143536000000;0.0928564990000000;0.146986132000000];
+%% MI_boxplot.m
+% Boxplot of mutual information values comparing Formalin vs PBS groups.
+%
+% Displays a boxplot of pre-computed mutual information (MI) values for
+% CeLC and DRN ROIs across Formalin and PBS mice. Hardcoded MI values
+% from behlick_MI.m output are used directly. Statistical significance
+% labels (a/b) are overlaid manually.
+%
+% See also: behlick_MI, Frame_lag_boxplot
+0.100726870000000;0.165736132000000;0.109549913000000;0.136143536000000;0.0928564990000000;0.146986132000000];
 pm = [1.11022000000000e-16;1.11022000000000e-16;1.11022000000000e-16;1.11022000000000e-16;1.11022000000000e-16;1.11022000000000e-16];
 
 g = [1,1,1,1,2,2,2,2,3,3,3,4,4,4];

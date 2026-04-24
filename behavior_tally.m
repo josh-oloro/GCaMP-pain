@@ -1,6 +1,17 @@
-clearvars
-close all
-load('E_Pain_adj_ROI')
+%% behavior_tally.m
+% Plot CeA and DRN ROI signals alongside behavioral lick counts.
+%
+% Loads processed ROI signals for one Formalin mouse (E) and one PBS mouse (I),
+% then plots the CeA and DRN ΔF/F time series for each of the three ROIs
+% together with a stem plot of licking behavior from BehaviorTally.mat.
+% All signals are aligned to a common time axis with time zero at the
+% injection midpoint.
+%
+% Requires (must be on path or in current directory):
+%   E_Pain_adj_ROI.mat  - Formalin Mouse E ROI signals
+%   I_PBS_adj_ROI.mat   - PBS Mouse I ROI signals
+%   BehaviorTally.mat   - Licking behavior data (Formalin, PBS, BehTime, Beh)
+
 
 CA = [mean_adj1_ROI1, mean_adj1_ROI2, mean_adj1_ROI3];
 DRN = [mean_adj2_ROI1, mean_adj2_ROI2, mean_adj2_ROI3];

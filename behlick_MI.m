@@ -1,7 +1,32 @@
+%% behlick_MI.m
+% Mutual information between ROI calcium signals and licking behavior.
+%
+% Computes the mutual information (MI) between each ROI's binned ΔF/F signal
+% and the mouse's licking count per time bin, across all mice. Uses a
+% nearest-neighbor estimator (discrete_continuous_info_fast). Generates
+% bar, scatter, and heatmap figures of MI values grouped by brain region
+% and mouse group (Formalin vs PBS).
+%
+% Requires:
+%   BehaviorTally.mat       - Licking data (Formalin and PBS matrices, BehTime)
+%   L_Pain_adj_ROI.mat, M_Pain_adj_ROI.mat, N_Pain_adj_ROI.mat  (Formalin mice)
+%   O_Pain_adj_ROI.mat, P_Pain_adj_ROI.mat, Q_Pain_adj_ROI.mat, R_Pain_adj_ROI.mat
+%   All files must be on the MATLAB path or in the current directory.
+%
+% Configure:
+%   data    - Cell array of _adj_ROI.mat filenames for each mouse
+%   lick_i  - Column index into Formalin/PBS behavior matrices for each mouse
+%   fps     - Frame rate (default 10.68 fps)
+%
+% Outputs (in workspace):
+%   f - MI matrix (6 ROIs × 7 mice)
+%
+% Calls: discrete_continuous_info_fast
 % %  Variables
 % [f(ri, data_i), ~] = discrete_continuous_info_fast(lick, roi_bin);
 % ri = ROI
 % data_i = mouse
+
 
 clearvars
 

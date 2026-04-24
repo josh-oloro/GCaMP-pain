@@ -1,8 +1,13 @@
+%% Frame_lag_boxplot.m
+% Boxplot of cross-correlation best lag counts (Formalin vs PBS).
+%
+% Displays a boxplot comparing the number of ROI pairs with a best lag
+% greater than one frame between Formalin and PBS mice. Hardcoded lag
+% values from cross_corr_diff.m outputs are used directly. Includes
+% significance bracket overlaid manually.
+%
+% See also: cross_corr_diff, MI_boxplot
 
-
-%%Make boxplot
-
-F1 = 0;	PBS1 = 10;
 F2 = 0;	PBS2 = 4;
 F3 = 0;	PBS3 = 8;
 F4 = 2;	

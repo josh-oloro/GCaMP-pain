@@ -1,5 +1,19 @@
-clearvars
-load('E_Pain_adj_ROI')
+%% plot_signals_imgsc.m
+% Plot ROI signals alongside ΔF/F heatmap frames for a Formalin and PBS mouse.
+%
+% Loads ROI signal data for Mouse E (Formalin) and Mouse I (PBS) and generates
+% a figure with CeA and DRN ΔF/F time series for ROIs 1–3 plus a background
+% region, alongside representative ΔF/F heatmap images with ROI outlines.
+%
+% Requires (must be on path or in current directory):
+%   E_Pain_adj_ROI.mat  - Formalin Mouse E ROI signals and heatmap images
+%   I_PBS_adj_ROI.mat   - PBS Mouse I ROI signals and heatmap images
+%
+% Configure:
+%   fps          - Frame rate (default 10.68 fps)
+%   min/max_plot_x/y - Axis limits
+%   time_frame1, time_frame2 - Frame times displayed in image titles
+
 
 CA = [mean_adj1_ROI1, mean_adj1_ROI2, mean_adj1_ROI3, mean_adj1_bg];	
 DRN = [mean_adj2_ROI1, mean_adj2_ROI2, mean_adj2_ROI3, mean_adj2_bg];	

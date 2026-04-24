@@ -1,5 +1,17 @@
-close all
-st = inj_end;
+%% cross_corr.m
+% Basic cross-correlation between CeA and DRN ROI signals.
+%
+% Computes the normalized cross-correlation (xcorr with 'coeff') between
+% each of the three CeA ROIs and each of the three DRN ROIs for the
+% post-injection period. Displays the best lag and peak rho^2 for each pair.
+%
+% Requires in the workspace (from loading an _adj_ROI.mat file):
+%   mean_adj1_ROI1/2/3  - Mean CeA ΔF/F signals per ROI
+%   mean_adj2_ROI1/2/3  - Mean DRN ΔF/F signals per ROI
+%   inj_end             - Frame index marking end of injection period
+%
+% See also: cross_corr_diff (uses differenced signals for stationarity)
+
 et = length(mean_adj1_ROI1);
 cea{1} = mean_adj1_ROI1(st:et);%(start_mark:end);
 cea{2} = mean_adj1_ROI2(st:et);%(start_mark:end);

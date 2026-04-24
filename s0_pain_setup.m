@@ -1,5 +1,23 @@
-%% This script prepares the data for preprocessing and analysis
+%% s0_pain_setup.m
+% Step 0 of the GCaMP-pain pipeline.
 %
+% Reads raw CMOS image files for a single recording session, removes
+% electrical hum noise, and plots mean signals for visual inspection.
+%
+% Before running:
+%   - Set DATA_FOLDER to the name of the folder (inside data/) containing
+%     the raw .raw files for this session.
+%   - Set x_size and y_size to match the CMOS sensor pixel array dimensions.
+%   - Set inj_start, inj_end (injection period frame indices) and
+%     start_mark (time-zero frame index).
+%
+% Workspace outputs:
+%   data_raw      - Raw pixel data (x × y × t) for the full sensor
+%   data_denoise1 - Hum-corrected data for the CeA sensor region
+%   data_denoise2 - Hum-corrected data for the DRN sensor region
+%
+% Calls: f_read_pain, hum_removal, plot_mean
+
 
 % Input size of pixel array
 x_size = 44;

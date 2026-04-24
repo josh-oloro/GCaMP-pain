@@ -1,5 +1,22 @@
-clearvars
-Formalin_mat = {'L_Pain_adj', 'M_Pain_adj', 'N_Pain_adj'};
+%% plot_across_mice.m
+% Plot mean CeA and DRN signals for all Formalin and PBS mice.
+%
+% Loads _Pain_adj.mat files for all Formalin (L, M, N) and PBS (P, Q, R) mice
+% and overlays their mean CeA and DRN ΔF/F time series in a single figure.
+% Each mouse is shown as a separate row; signals are aligned to the injection
+% time point. Also plots the mean licking behavior from BehaviorTally.mat.
+%
+% Requires (must be on path or in current directory):
+%   L_Pain_adj.mat, M_Pain_adj.mat, N_Pain_adj.mat  - Formalin group
+%   P_PBS_adj.mat, Q_PBS_adj.mat, R_PBS_adj.mat      - PBS group
+%   BehaviorTally.mat  - Licking behavior data
+%
+% Configure:
+%   Formalin_mat - Cell array of Formalin mouse _adj .mat filenames
+%   PBS_mat      - Cell array of PBS mouse _adj .mat filenames
+%   fps          - Frame rate (default 10.68 fps)
+%   min/max_plot_x/y - Axis limits
+
 PBS_mat = {'P_PBS_adj', 'Q_PBS_adj', 'R_PBS_adj'};
 nFilesA = numel (Formalin_mat);
 nFilesB = numel (PBS_mat);

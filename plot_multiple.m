@@ -1,3 +1,16 @@
+%% plot_multiple.m
+% Plot multiple ROI signals from a single mouse recording.
+%
+% Displays mean ΔF/F signals for individual ROIs (1, 2, 5, 6, 7, 8, 12)
+% and a background region on a single time-axis plot. Used during
+% exploratory ROI analysis to compare candidate regions on one mouse.
+%
+% Requires in the workspace (after running s2_pain_ROIselection.m):
+%   mean_adj_ROI1/2/5/6/7/8/12  - Mean ΔF/F per ROI
+%   mean_adj_bg                 - Mean ΔF/F for background region
+%   data_raw                    - Raw data (used for time axis length)
+%   f0_id, fps, inj_start, inj_end, start_mark
+%
 %function [mean_adj_ROI, sem_adj_ROI] = 
 
 % mean_adj_ROI1 = squeeze(mean(data_adj_ROI1, [1 2],'omitnan'));

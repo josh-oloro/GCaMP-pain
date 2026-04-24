@@ -1,9 +1,15 @@
-close all
-clearvars
+%% FigCrossCorr.m
+% Generate cross-correlation summary figure (earlier version).
+%
+% Loads the compiled cross-correlation matrices from crosscor.mat and
+% displays imagesc heatmaps of |rho| for each of the 7 mice. This is an
+% earlier version of the figure; MakeFigCrossCorr.m uses improved axis labels.
+%
+% Requires:
+%   crosscor.mat  - rhomat and lagmat arrays produced by MakeMatCrossCorr.m
+%
+% See also: MakeFigCrossCorr (updated version), MakeMatCrossCorr
 
-load('crosscor')
-nROI = 6;
-ROI_list = {'CeLC\newlineROI1', 'CeLC\newlineROI2', 'CeLC\newlineROI3',...
     'DRN\newlineROI1', 'DRN\newlineROI2', 'DRN\newlineROI3'};
 mouse_list = {'Formalin Mouse 1', 'Formalin Mouse 2',...
     'Formalin Mouse 3', 'Formalin Mouse 4', ...

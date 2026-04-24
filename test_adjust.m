@@ -1,4 +1,21 @@
-function [data_adj, data_det] = test_adjust(data,start_adj,end_adj,nan_idx,seg)
+function [data_adj, data_det] = test_adjust(data, start_adj, end_adj, nan_idx, seg)
+% TEST_ADJUST Subtract segment mean and detrend a data segment.
+%
+% [data_adj, data_det] = TEST_ADJUST(data, start_adj, end_adj, nan_idx, seg)
+% extracts the slice data(:,:,start_adj:end_adj), sets frames in nan_idx to
+% NaN, subtracts the spatial mean (per pixel, averaged over non-NaN frames),
+% and computes a polynomial detrend of the resulting spatially-averaged signal.
+%
+% Input
+%   data      : x × y × t pixel array
+%   start_adj : first frame index of the segment to process
+%   end_adj   : last frame index of the segment to process
+%   nan_idx   : global frame indices to set as NaN within the segment
+%   seg       : segment label string (used only in commented-out plot titles)
+%
+% Output
+%   data_adj  : mean-subtracted segment (x × y × (end_adj-start_adj+1))
+%   data_det  : detrended spatially-averaged signal for the segment (1D vector)
 
     data_seg = data(:,:,start_adj:end_adj);
     data_mean = squeeze(mean(data_seg,3,'omitnan'));

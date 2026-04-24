@@ -1,4 +1,27 @@
-%% compute for relative difference (Reference Frame subtraction)
+%% s1_pain_preprocessing.m
+% Step 1 of the GCaMP-pain pipeline.
+%
+% Computes the relative fluorescence change (ΔF/F) for both the CeA and DRN
+% sensor regions using a pre-injection reference baseline. Optionally exports
+% a side-by-side video of the ΔF/F heatmaps. Saves processed data to
+% mat/<trial_name>_Pain_adj.mat.
+%
+% Requires data_denoise1 and data_denoise2 in the workspace from s0_pain_setup.m.
+%
+% Before running:
+%   - ref_frame   - Frame range for the baseline F0 (e.g., 3110:6500)
+%   - sample_frame - Frame number to display as a representative image
+%   - VID_START, VID_END - Frame range for optional video (prompted at runtime)
+%
+% Workspace outputs:
+%   data_adj1 - ΔF/F array for CeA region
+%   data_adj2 - ΔF/F array for DRN region
+%
+% Saved outputs:
+%   mat/<trial_name>_Pain_adj.mat
+%
+% Calls: plot_mean
+
 ref_frame = 3110:6500;
 ref_frame1 = mean(data_denoise1(:,:,ref_frame),3);
 ref_frame2 = mean(data_denoise2(:,:,ref_frame),3);

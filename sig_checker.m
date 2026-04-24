@@ -1,4 +1,22 @@
-figure1 = figure('Units', 'normalized', 'Position', [0 0.5, 1,0.5]);
+%% sig_checker.m
+% Video-based significance checking: ROI vs background histogram per frame.
+%
+% Iterates over a range of frames, compares the mean ROI pixel value against
+% the 2.5–97.5 percentile range of non-ROI background pixels, and exports a
+% side-by-side video of the ΔF/F heatmap and a background histogram with
+% the ROI mean marked.
+%
+% Requires in the workspace (from s1_pain_preprocessing.m or equivalent):
+%   aveMat2_adj   - ΔF/F array for the brain region of interest
+%   all_normal_matrix - Raw data (used for total frame count)
+%   minVal4, maxVal4  - Color scale limits
+%   fps, newnumFile   - Frame rate and total frame count
+%
+% Configure:
+%   roi_x_s/e, roi_y_s/e - ROI pixel coordinate ranges
+%   fileInd range (6000:7000) - Frames to process
+%   vidFName - Output video file path
+
 
 convX = 1; %how many seconds to one interval?
 everyTick = 10; %10 intervals of convX is one tick

@@ -1,11 +1,16 @@
-% close all
-clearvars
-
-load('crosscor')
-nROI = 6;
-% ROI_list = {'CeLC\newlineROI1', 'CeLC\newlineROI2', 'CeLC\newlineROI3',...
-%     'DRN\newlineROI1', 'DRN\newlineROI2', 'DRN\newlineROI3'};
-ROI_list_y = {'{\bf{CeLC}} ROI1', 'ROI2', 'ROI3',...
+%% MakeFigCrossCorr.m
+% Generate cross-correlation summary figure (heatmap per mouse).
+%
+% Loads the compiled cross-correlation matrices from crosscor.mat and
+% displays a grid of imagesc heatmaps showing |rho| for each of the 7 mice
+% (4 Formalin, 3 PBS). Best-lag values are overlaid as text annotations.
+% Axes are labeled with CeLC and DRN ROI identifiers.
+%
+% Requires:
+%   crosscor.mat  - rhomat and lagmat arrays produced by MakeMatCrossCorr.m
+%
+% See also: FigCrossCorr (earlier version), MakeMatCrossCorr
+ = {'{\bf{CeLC}} ROI1', 'ROI2', 'ROI3',...
     '{\bf{DRN}} ROI1', 'ROI2', 'ROI3'};
 ROI_list_x = {'ROI1', 'ROI2\newline\bf{CeLC}', 'ROI3',...
     'ROI1', 'ROI2\newline\bf{DRN}', 'ROI3'};
